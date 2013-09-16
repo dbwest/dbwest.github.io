@@ -325,17 +325,27 @@
 <li><p><strong>Set up paths to Android Tools:</strong></p>
 
 <ol>
-<li><p>Add these lines to the top of your &lsquo;~/.bash_profile&rsquo;:</p>
+<li>Add these lines to the top of your &lsquo;~/.bash_profile&rsquo;:</li>
+</ol>
 
-<pre><code> export ANDROID_HOME=/usr/local/adt/sdk
+
+<p> <code>bash ~/.bash_profile    
+ export ANDROID_HOME=/usr/local/adt/sdk
  export ANDROID_SDK=$ANDROID_HOME
-</code></pre></li>
-<li><p>Add these lines to the bottom of your &lsquo;~/.bash_profile&rsquo;:</p>
+</code></p>
 
-<pre><code> PATH=$PATH:$ANDROID_HOME/tools
+<ol>
+<li>Add these lines to the bottom of your &lsquo;~/.bash_profile&rsquo;:</li>
+</ol>
+
+
+<p> <code>bash ~/.bash_profile
+ PATH=$PATH:$ANDROID_HOME/tools
  PATH=$PATH:$ANDROID_HOME/platform-tools
-</code></pre></li>
-<li><p>These commands should now work without errors: <code>adb</code> and <code>android</code></p></li>
+</code></p>
+
+<ol>
+<li>These commands should now work without errors: <code>adb</code> and <code>android</code></li>
 </ol>
 </li>
 </ol>
