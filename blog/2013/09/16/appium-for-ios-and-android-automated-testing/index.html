@@ -9,7 +9,7 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="Suggestion If you get stuck use stackoverflow, superuser, or any other stack exhange site like ask different. They are all amazingly helpful. Any &hellip;">
+  <meta name="description" content="Suggestion If you get stuck, use stackoverflow, superuser, or any other Stack Exchange site like ask different. They are all amazingly helpful. Any &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,7 +95,7 @@
 
 <div class="entry-content"><h2>Suggestion</h2>
 
-<p>If you get stuck use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other stack exhange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
+<p>If you get stuck, use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other Stack Exchange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
 
 <h2>Tested with / Requirements</h2>
 
@@ -131,18 +131,27 @@
 <h3>Preliminary Setup: users and groups (admin access required)</h3>
 
 <ol>
-<li><p><strong>Setup groups for homebrew and automated test users:</strong> from terminal:</p>
-
-<pre><code> $ sudo dseditgroup -o create brew testers 
-</code></pre>
-
-<p> Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)</p></li>
-<li><p><strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</p>
-
-<pre><code> $ sudo dseditgroup -o edit -a supertester -t user testers
- $ sudo dseditgroup -o edit -a supertester -t user brew
-</code></pre></li>
+<li><strong>Setup groups for homebrew and automated test users:</strong> from terminal:</li>
 </ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o create brew testers
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)</p>
+
+<ol>
+<li><strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user testers
+</span><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user brew
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Install and configure homebrew package manager (admin needed)</h3>
@@ -206,14 +215,24 @@
 </li>
 </ol>
 </li>
-<li><p><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</p>
+<li><p><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</p></li>
+</ol>
 
-<pre><code> http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/
- http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/
- http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
- https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
- http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/
-</code></pre></li>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/
+</span><span class='line'>http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/
+</span><span class='line'>http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
+</span><span class='line'>https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
+</span><span class='line'>http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
 <li><p><strong>Install ruby:</strong></p>
 
 <ol>
