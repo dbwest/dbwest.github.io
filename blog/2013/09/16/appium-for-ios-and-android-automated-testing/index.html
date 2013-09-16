@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Appium for iOS and Android Automated Testing - John Lee Supertester</title>
+  <title>Appium for iOS and Android Automated Testing - Supertester</title>
   <meta name="author" content="David West">
 
   
@@ -24,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="John Lee Supertester" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Supertester" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -49,7 +49,7 @@
 <ul class="main-navigation">
     <li><a href="/">
         <span class="blue_light">
-            John Lee Supertester
+            Supertester
         </span>
        
            <span class="blue_dark">
@@ -59,7 +59,6 @@
     </a></li>
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/about">About me</a></li>
 </ul>
 
 </nav>
@@ -117,9 +116,9 @@
 <h3>Preliminary Setup: install XCode, the Command Line Tools and the iOS simulator</h3>
 
 <ol>
-<li><p><strong>Download XCode from the Apple Developer&rsquo;s website.</strong></p></li>
-<li><p><strong>Install it from the package</strong></p></li>
-<li><p><strong>After the XCode install is complete, install the Command Line Tools and the Simulator:</strong></p>
+<li><strong>Download XCode from the Apple Developer&rsquo;s website.</strong></li>
+<li><strong>Install it from the package</strong></li>
+<li><strong>After the XCode install is complete, install the Command Line Tools and the Simulator:</strong>
 
 <ul>
 <li>Start XCode, open XCode Preferences (command+,) and select downloads. Click the install button for the command line tools and iOS. Wait for the long downloads and follow all dialogues to install.</li>
@@ -140,12 +139,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)</p>
-
-<ol>
-<li><strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</li>
-</ol>
-
+<p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)
+2. <strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -157,39 +152,41 @@
 <h3>Install and configure homebrew package manager (admin needed)</h3>
 
 <ol>
-<li><p><strong>Visit the Homebrew website:</strong> <a href="http://brew.sh/">brew.sh</a></p></li>
-<li><p><strong>Install Homebrew:</strong> Paste this at the terminal prompt: <code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code></p></li>
-<li><p><strong>Change group for homebrew folder to &lsquo;brew&rsquo;:</strong> <code>sudo chgrp -R brew /usr/local</code> and type in your password.</p></li>
-<li><p><strong>Give permissions to &lsquo;brew&rsquo; group:</strong> <code>sudo chmod -R 775 /usr/local</code></p></li>
-<li><p><strong>Check to see that your permissions are working:</strong></p>
-
-<ul>
-<li><p><code>cd /usr/local/bin</code></p></li>
-<li><p><code>touch my_test_file.tmp</code></p></li>
-<li><p><code>ls</code> and look for the file &lsquo;my_test_file.tmp&rsquo;</p></li>
-<li><p>If it is there, your permissions are set up correctly. Congratulations! <strong>Get rid of your test file:</strong> <code>rm my_test_file.tmp</code></p></li>
-</ul>
-</li>
+<li><strong>Visit the Homebrew website:</strong> <a href="http://brew.sh/">brew.sh</a></li>
+<li><strong>Install Homebrew:</strong> Paste this at the terminal prompt: <code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code></li>
+<li><strong>Change group for homebrew folder to &lsquo;brew&rsquo;:</strong> <code>sudo chgrp -R brew /usr/local</code> and type in your password.</li>
+<li><strong>Give permissions to &lsquo;brew&rsquo; group:</strong> <code>sudo chmod -R 775 /usr/local</code></li>
+<li><strong>Check to see that your permissions are working:</strong></li>
 </ol>
 
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /usr/local/bin
+</span><span class='line'><span class="nv">$ </span>touch my_test_file.tmp
+</span><span class='line'><span class="nv">$ </span>ls
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Look for the file &lsquo;my_test_file.tmp&rsquo;. If it is there, your permissions are set up correctly. Congratulations! <strong>Get rid of your test file:</strong> <code>rm my_test_file.tmp</code></p>
 
 <h3>Install Appium</h3>
 
 <ul>
-<li><p><strong>For a graphical user interface (needed if using Lion)</strong></p>
+<li><strong>For a graphical user interface (needed if using Lion)</strong>
 
 <ol>
 <li> <strong>Download the Appium Package and Install it by copying to Applications:</strong> The website is <a href="http://appium.io">appium.io</a>. You will</li>
 </ol>
 </li>
-<li><p><strong>For a command line install (possible if using Mountain Lion)</strong></p>
-
-<p>  <strong>same as above, or:</strong></p>
+<li><strong>For a command line install (possible if using Mountain Lion)</strong>
+  <strong>same as above, or:</strong>
 
 <ol>
-<li><p> <strong>Install node.js using brew:</strong> <code>brew install node</code></p></li>
-<li><p> <strong>Install appium globally using node&rsquo;s package manager &lsquo;npm&rsquo;:</strong> <code>sudo npm install -g appium</code></p></li>
-<li><p> <strong>Use the package manager to install webdriver, too:</strong> <code>npm install wd</code></p></li>
+<li> <strong>Install node.js using brew:</strong> <code>brew install node</code></li>
+<li> <strong>Install appium globally using node&rsquo;s package manager &lsquo;npm&rsquo;:</strong> <code>sudo npm install -g appium</code></li>
+<li> <strong>Use the package manager to install webdriver, too:</strong> <code>npm install wd</code></li>
 </ol>
 </li>
 </ul>
@@ -197,17 +194,15 @@
 
 <h3>Install Ruby from source</h3>
 
-<p>Techies: You may try to install Ruby using RVM or rbenv. No guarantees it will work with Lion, though.</p>
+<ol>
+<li><strong>Download libyaml:</strong> from <a href="[http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz">http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz</a></li>
+<li><strong>Install libyaml:</strong>
 
 <ol>
-<li><p><strong>Download libyaml:</strong> from <a href="[http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz">http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz</a></p></li>
-<li><p><strong>Install libyaml:</strong></p>
-
-<ol>
-<li><p><strong>Go to the directory you downloaded it in, for example &lsquo;~/Downloads&rsquo;:</strong> <code>cd ~/Downloads</code></p></li>
-<li><p><strong>Unzip and untar it:</strong> <code>tar zxvf yaml-0.1.4.tar.gz</code></p></li>
-<li><p><strong>Enter the libyaml directory you extracted:</strong> <code>cd yaml-0.1.4</code></p></li>
-<li><p><strong>Enter these commands to install and wait while the source is compiled:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code></p>
+<li><strong>Go to the directory you downloaded it in, for example &lsquo;~/Downloads&rsquo;:</strong> <code>cd ~/Downloads</code></li>
+<li><strong>Unzip and untar it:</strong> <code>tar zxvf yaml-0.1.4.tar.gz</code></li>
+<li><strong>Enter the libyaml directory you extracted:</strong> <code>cd yaml-0.1.4</code></li>
+<li><strong>Enter these commands to install and wait while the source is compiled:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code>
 
 <ul>
 <li>If you want the mac to tell you when it is done, you can turn up your volume and type this in, instead: <code>configure &amp;&amp; make &amp;&amp; make install &amp;&amp; say "I am done"</code></li>
@@ -215,7 +210,7 @@
 </li>
 </ol>
 </li>
-<li><p><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</p></li>
+<li><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</li>
 </ol>
 
 
@@ -233,20 +228,20 @@
 
 
 <ol>
-<li><p><strong>Install ruby:</strong></p>
+<li><strong>Install ruby:</strong>
 
 <ol>
-<li><p><strong>Unzip it and untar it and enter the directory:</strong>  <code>tar zxvf ruby-1.9.3-p448.tar.gz &amp;&amp; cd ruby-1.9.3-p448</code></p></li>
-<li><p><strong>Compile source and install it using these commands:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code></p></li>
-<li><p><strong>Make a gem repository in your home directory:</strong> <code>mkdir ~/mygemrepository</code></p></li>
-<li><p><strong>Setup environment variables and paths:</strong> using &lsquo;nano&rsquo;, &lsquo;vi&rsquo;, or your text editor of choice:</p>
+<li><strong>Unzip it and untar it and enter the directory:</strong>  <code>tar zxvf ruby-1.9.3-p448.tar.gz &amp;&amp; cd ruby-1.9.3-p448</code></li>
+<li><strong>Compile source and install it using these commands:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code></li>
+<li><strong>Make a gem repository in your home directory:</strong> <code>mkdir ~/mygemrepository</code></li>
+<li><strong>Setup environment variables and paths:</strong> using &lsquo;nano&rsquo;, &lsquo;vi&rsquo;, or your text editor of choice:
 
 <ul>
-<li><p>Add <code>export GEM_HOME=~/mygemrepository</code> to the top of your ~/.bash_profile file.</p></li>
-<li><p><strong>Change your path so that it includes &lsquo;~/mygemrepository/bin&rsquo; and so that &lsquo;/usr/local/bin&rsquo; takes precedence over &lsquo;/usr/bin&rsquo;:</strong> you should make or edit a line in your &lsquo;~/.bash_profile&rsquo; so that you have something like: <code>PATH=/usr/local/bin:~/mygemrepository/bin:$PATH</code>. It is important that &lsquo;/usr/local/bin&rsquo; and &lsquo;~/mygemrepository/bin&rsquo; be at the beginning of this line, as shown.</p></li>
+<li>Add <code>export GEM_HOME=~/mygemrepository</code> to the top of your ~/.bash_profile file.</li>
+<li><strong>Change your path so that it includes &lsquo;~/mygemrepository/bin&rsquo; and so that &lsquo;/usr/local/bin&rsquo; takes precedence over &lsquo;/usr/bin&rsquo;:</strong> you should make or edit a line in your &lsquo;~/.bash_profile&rsquo; so that you have something like: <code>PATH=/usr/local/bin:~/mygemrepository/bin:$PATH</code>. It is important that &lsquo;/usr/local/bin&rsquo; and &lsquo;~/mygemrepository/bin&rsquo; be at the beginning of this line, as shown.</li>
 </ul>
 </li>
-<li><p><strong>Test to see that ruby is installed properly, and that you are using the correct version:</strong></p>
+<li><strong>Test to see that ruby is installed properly, and that you are using the correct version:</strong>
 
 <ul>
 <li>Type <code>ruby -v</code> at the command prompt. The output should include: &lsquo;ruby 1.9.3p448&rsquo;</li>
@@ -260,27 +255,27 @@
 <h3>Install Chromedriver</h3>
 
 <ol>
-<li><p><strong>Download Chromedriver</strong></p>
+<li><strong>Download Chromedriver</strong>
 
 <ol>
-<li><p><strong>Download chromedriver_mac32_2.2.zip if you have Mountain Lion or chromedriver_mac32_2.1.zip if you have Lion:</strong></p>
+<li><strong>Download chromedriver_mac32_2.2.zip if you have Mountain Lion or chromedriver_mac32_2.1.zip if you have Lion:</strong>
 
 <ul>
 <li>To see all downloads you will need to choose &lsquo;All downloads&rsquo; from the dropdown in the search section and press the search button.</li>
 </ul>
 </li>
-<li><p><strong>Move chromedriver to a binary directory in your path:</strong></p>
+<li><strong>Move chromedriver to a binary directory in your path:</strong>
 
 <ul>
 <li>Choose the download you need, unzip it, and from a prompt type (assuming you have it in ~/Downloads and downloaded 2.1:) <code>cp ~/Downloads/chromedriver_mac32_2.1.zip /usr/local/bin</code></li>
 </ul>
 </li>
-<li><p><strong>Test your installation:</strong></p>
+<li><strong>Test your installation:</strong>
 
 <ul>
-<li><p>Test it by typing, from a prompt: <code>chromedriver</code></p></li>
-<li><p>You should see &lsquo;Started ChromeDriver (v2.1) on port 9515&rsquo;</p></li>
-<li><p><strong>Troubleshooting Advice:</strong> If you see an error you can try downloading an earlier version.</p></li>
+<li>Test it by typing, from a prompt: <code>chromedriver</code></li>
+<li>You should see &lsquo;Started ChromeDriver (v2.1) on port 9515&rsquo;</li>
+<li><strong>Troubleshooting Advice:</strong> If you see an error you can try downloading an earlier version.</li>
 </ul>
 </li>
 </ol>
@@ -290,88 +285,78 @@
 
 <h3>Install the GenyMotion Android Emulator (needs admin access)</h3>
 
-<p><strong>These instructions may change soon, so I&rsquo;ll keep them short</strong></p>
+<p><strong>These instructions may change soon, so I&rsquo;ll keep them short</strong>
+1. <strong>Download and Install VirtualBox (needs admin access)</strong></p>
+
+<pre><code>- Search for it on Google.
+- Download it off the Oracle website.
+- Open the package and follow the dialogues to install VirtualBox (it is required for the Genymotion Android Emulator)
+</code></pre>
 
 <ol>
-<li><p><strong>Download and Install VirtualBox (needs admin access)</strong></p>
+<li><strong>Setup Genymotion (current as of 09/16/13) and load the Chrome web browser onto it</strong>
 
 <ul>
-<li><p>Search for it on Google.</p></li>
-<li><p>Download it off the Oracle website.</p></li>
-<li><p>Open the package and follow the dialogues to install VirtualBox (it is required for the Genymotion Android Emulator)</p></li>
-</ul>
-</li>
-<li><p><strong>Setup Genymotion (current as of 09/16/13) and load the Chrome web browser onto it</strong></p>
-
-<ul>
-<li><p>Currently you need an account (free) with Genymotion to download or even install virtual machine images using Genymotion. Sign up for one.</p></li>
-<li><p>Download the Genymotion installer for mac.</p></li>
-<li><p>Install it using the dialogues.</p></li>
-<li><p>Open Genymotion, log into the Genymotion cloud, and choose an image to download from the cloud. If you don&rsquo;t know what to download, just make sure that the Android operating system is 4.1 or higher.</p></li>
-<li><p>Click on the applications menu button and choose the &lsquo;Play Store&rsquo; application.</p></li>
-<li><p>Search for Chrome, and download it.</p></li>
+<li>Currently you need an account (free) with Genymotion to download or even install virtual machine images using Genymotion. Sign up for one.</li>
+<li>Download the Genymotion installer for mac.</li>
+<li>Install it using the dialogues.</li>
+<li>Open Genymotion, log into the Genymotion cloud, and choose an image to download from the cloud. If you don&rsquo;t know what to download, just make sure that the Android operating system is 4.1 or higher.</li>
+<li>Click on the applications menu button and choose the &lsquo;Play Store&rsquo; application.</li>
+<li>Search for Chrome, and download it.</li>
 </ul>
 </li>
 </ol>
 
-
-<hr />
 
 <h2>Android SDK Setup</h2>
 
 <ol>
-<li><p><strong>Download the SDK:</strong> Go to <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a> and click the &lsquo;Download the SDK&rsquo; button.</p></li>
-<li><p><strong>Install the SDK by following the directions</strong></p></li>
-<li><p><strong>Set up paths to Android Tools:</strong></p>
-
-<ol>
-<li>Add these lines to the top of your &lsquo;~/.bash_profile&rsquo;:</li>
+<li><strong>Download the SDK:</strong> Go to <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a> and click the &lsquo;Download the SDK&rsquo; button.</li>
+<li><strong>Install the SDK by following the directions</strong></li>
+<li><strong>Set up paths to Android Tools:</strong>
+<strong>Add these lines to the top of your &lsquo;~/.bash_profile&rsquo;:</strong></li>
 </ol>
 
 
-<p> <code>bash ~/.bash_profile    
- export ANDROID_HOME=/usr/local/adt/sdk
- export ANDROID_SDK=$ANDROID_HOME
-</code></p>
-
-<ol>
-<li>Add these lines to the bottom of your &lsquo;~/.bash_profile&rsquo;:</li>
-</ol>
+<figure class='code'><figcaption><span>~/.bash_profile    </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span>/usr/local/adt/sdk
+</span><span class='line'><span class="nb">export </span><span class="nv">ANDROID_SDK</span><span class="o">=</span><span class="nv">$ANDROID_HOME</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p> <code>bash ~/.bash_profile
- PATH=$PATH:$ANDROID_HOME/tools
- PATH=$PATH:$ANDROID_HOME/platform-tools
-</code></p>
+<p><strong>Add these lines to the bottom of your &lsquo;~/.bash_profile&rsquo;:</strong></p>
 
-<ol>
-<li>These commands should now work without errors: <code>adb</code> and <code>android</code></li>
-</ol>
-</li>
-</ol>
+<figure class='code'><figcaption><span>~/.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>/tools
+</span><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>/platform-tools
+</span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>These commands should now work without errors:</strong> <code>adb</code> and <code>android</code></p>
 
 <h2>Appium Setup</h2>
 
 <h3>Starting the Application if the GUI is installed</h3>
 
 <ol>
-<li><p><strong>Open the Appium application.</strong></p>
+<li><strong>Open the Appium application.</strong>
 
 <ul>
-<li><p><strong>If using the Android emulator:</strong></p>
+<li><strong>If using the Android emulator:</strong>
 
 <ol>
-<li><p> <strong>Click the &lsquo;Package&rsquo; checkbox after clicking the &lsquo;Android&rsquo; tab</strong></p></li>
-<li><p> <strong>Enter <code>com.android.chrome</code> into the &lsquo;Package&rsquo; text field</strong></p></li>
-<li><p> <strong>Click &lsquo;Launch&rsquo;</strong></p></li>
+<li> <strong>Click the &lsquo;Package&rsquo; checkbox after clicking the &lsquo;Android&rsquo; tab</strong></li>
+<li> <strong>Enter <code>com.android.chrome</code> into the &lsquo;Package&rsquo; text field</strong></li>
+<li> <strong>Click &lsquo;Launch&rsquo;</strong></li>
 </ol>
 </li>
-<li><p><strong>If using the iOS simulator:</strong></p>
+<li><strong>If using the iOS simulator:</strong>
 
 <ol>
-<li><p> <strong>Click the &lsquo;iOS&rsquo; tab</strong></p></li>
-<li><p> <strong>Check the box that says &lsquo;Use mobile Safari&rsquo;</strong></p></li>
+<li> <strong>Click the &lsquo;iOS&rsquo; tab</strong></li>
+<li> <strong>Check the box that says &lsquo;Use mobile Safari&rsquo;</strong></li>
 </ol>
 </li>
 </ul>
@@ -382,19 +367,15 @@
 <h3>Starting Appium from the Command Line</h3>
 
 <ol>
-<li><p><strong>For Android:</strong> At the terminal: <code>appium --app-pkg com.android.chrome</code></p></li>
-<li><p><strong>For iOS:</strong> <code>appium --safari</code></p></li>
+<li><strong>For Android:</strong> At the terminal: <code>appium --app-pkg com.android.chrome</code></li>
+<li><strong>For iOS:</strong> <code>appium --safari</code></li>
 </ol>
 
 
 <h2>Sample Android Scripts to Test Your Setup:</h2>
 
-<p>These scripts should work with your setup, they are also available at <a href="https://gist.github.com/dbwest/6551886"><code>https://gist.github.com/dbwest/6551886</code></a>. They are written for Android. Connect your device or start your emulator before using these:</p>
-
-<ul>
-<li><strong>Make a file called <code>Gemfile</code> with the following contents:</strong></li>
-</ul>
-
+<p>These scripts should work with your setup, they are also available at <a href="https://gist.github.com/dbwest/6551886"><code>https://gist.github.com/dbwest/6551886</code></a>. They are written for Android. Connect your device or start your emulator before using these:
+<strong>Make a file called <code>Gemfile</code> with the following contents:</strong></p>
 
 <figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -405,10 +386,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li><strong>Make a file called <code>android_appium.rb</code> with the following contents:</strong></li>
-</ul>
-
+<p><strong>Make a file called <code>android_appium.rb</code> with the following contents:</strong></p>
 
 <figure class='code'><figcaption><span>android_appium.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -498,8 +476,6 @@
 </span><span class='line'><span class="sb">`open images/.`</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-
 </div>
 
 
@@ -530,7 +506,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/" data-via="dbwest" data-counturl="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/" data-via="" data-counturl="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/" >Tweet</a>
   
   
   
@@ -557,35 +533,6 @@
       </li>
     
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/dbwest">@dbwest</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'dbwest',
-            count: 3,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
