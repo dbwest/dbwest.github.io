@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-18T11:40:27-04:00</updated>
+  <updated>2013-09-18T11:41:09-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -18,9 +18,7 @@
     <link href="http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline/"/>
     <updated>2013-09-18T11:33:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline</id>
-    <content type="html"><![CDATA[<p><strong>What</strong>
-Start a GenyMotion emulator from the commandline or a script
-<strong>Why</strong>
+    <content type="html"><![CDATA[<p><strong>Why</strong>
 Very useful for CI
 <strong>How</strong>
 First:
