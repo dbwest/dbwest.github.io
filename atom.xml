@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-18T11:38:43-04:00</updated>
+  <updated>2013-09-18T11:40:27-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -18,17 +18,12 @@
     <link href="http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline/"/>
     <updated>2013-09-18T11:33:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline</id>
-    <content type="html"><![CDATA[<h2>What</h2>
-
-<p>Start a GenyMotion emulator from the commandline or a script</p>
-
-<h2>Why</h2>
-
-<p>Very useful for CI</p>
-
-<h2>How</h2>
-
-<p>First:
+    <content type="html"><![CDATA[<p><strong>What</strong>
+Start a GenyMotion emulator from the commandline or a script
+<strong>Why</strong>
+Very useful for CI
+<strong>How</strong>
+First:
 <code>VBoxManage list vms</code> to see all your VMs
 Then:
 <code>/Applications/Genymotion.app/Contents/MacOS/player --vm-name "xxxx"</code> (xxxx is virtual device name)</p>
