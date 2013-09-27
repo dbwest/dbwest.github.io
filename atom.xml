@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-26T09:16:54-04:00</updated>
+  <updated>2013-09-27T09:58:58-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -40,7 +40,7 @@ Then:
 <li>Macs with Lion OS and Mountain Lion OS</li>
 <li>Ruby 1.9.3p448 (installed from binary)</li>
 <li>Appium 0.8.2 (needed if you are using Lion), Appium 0.9.0 (Mountain Lion)</li>
-<li>Chromedriver 2.1 (for Lion) or Chromedriver 2.2 (for Lion)</li>
+<li>Chromedriver 2.1 (for Lion) or Chromedriver 2.2 (for Mountain Lion)</li>
 <li>homebrew package manager</li>
 <li>node.js</li>
 <li>Install GenyMotion or the iOS simulator</li>
