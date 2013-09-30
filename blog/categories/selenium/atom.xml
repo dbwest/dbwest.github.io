@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: testing | Testblog]]></title>
-  <link href="http://dbwest.github.io/blog/categories/testing/atom.xml" rel="self"/>
+  <title><![CDATA[Category: selenium | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/selenium/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
   <updated>2013-09-30T17:34:04-04:00</updated>
   <id>http://dbwest.github.io/</id>
@@ -326,7 +326,7 @@ puts &ldquo;new ANDROID Watir browser object instantiated&rdquo;</p>
 <h1>automated browser code using Watir browser object and methods</h1>
 
 <p>browser.goto &ldquo;<a href="http://saucelabs.com/test/guinea-pig">http://saucelabs.com/test/guinea-pig</a>&rdquo;
-browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x62;&#x6f;&#98;&#x62;&#97;&#120;&#x74;&#101;&#x72;&#64;&#98;&#x6f;&#x62;&#x62;&#97;&#120;&#116;&#x65;&#x72;&#46;&#x6d;&#x65;">&#98;&#x6f;&#x62;&#x62;&#97;&#120;&#116;&#x65;&#x72;&#x40;&#x62;&#x6f;&#x62;&#x62;&#x61;&#120;&#x74;&#101;&#114;&#46;&#x6d;&#x65;</a>&rsquo;
+browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#98;&#x6f;&#x62;&#x62;&#97;&#x78;&#116;&#x65;&#x72;&#x40;&#98;&#111;&#x62;&#98;&#x61;&#120;&#116;&#x65;&#x72;&#x2e;&#x6d;&#x65;">&#98;&#111;&#98;&#x62;&#x61;&#120;&#x74;&#101;&#x72;&#x40;&#x62;&#x6f;&#98;&#x62;&#97;&#120;&#x74;&#x65;&#114;&#x2e;&#109;&#x65;</a>&rsquo;
 sleep 1</p>
 
 <h1>screenshot code</h1>

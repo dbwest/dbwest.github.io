@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: emulation | Testblog]]></title>
-  <link href="http://dbwest.github.io/blog/categories/emulation/atom.xml" rel="self"/>
+  <title><![CDATA[Category: scripting | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/scripting/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
   <updated>2013-09-30T17:34:04-04:00</updated>
   <id>http://dbwest.github.io/</id>

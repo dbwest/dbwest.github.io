@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-30T17:30:41-04:00</updated>
+  <updated>2013-09-30T17:34:04-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -80,7 +80,9 @@
     <link href="http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline/"/>
     <updated>2013-09-18T11:33:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline</id>
-    <content type="html"><![CDATA[<h2>Howto</h2>
+    <content type="html"><![CDATA[<p>This is really useful for CI. In your Jenkins or Hudson jobs, you will want to be able to script emulator startup and shutdown.</p>
+
+<h2>Howto</h2>
 
 <p>First:
 <code>VBoxManage list vms</code> to see all your VMs</p>
