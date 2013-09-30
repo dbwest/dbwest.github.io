@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: emulation | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/emulation/atom.xml" rel="self"/>
+  <link href="http://dbwest.github.io/"/>
+  <updated>2013-09-30T17:26:07-04:00</updated>
+  <id>http://dbwest.github.io/</id>
+  <author>
+    <name><![CDATA[David West]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Starting up the GenyMotion emulator from the commandline]]></title>
+    <link href="http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline/"/>
+    <updated>2013-09-18T11:33:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline</id>
+    <content type="html"><![CDATA[<h2>Howto</h2>
+
+<p>First:
+<code>VBoxManage list vms</code> to see all your VMs</p>
+
+<p>Then:
+<code>/Applications/Genymotion.app/Contents/MacOS/player --vm-name "xxxx"</code> (xxxx is virtual device name)</p>
+
+<h2>Thanks</h2>
+
+<p>Thanks to the Genymotion support staff.</p>
+]]></content>
+  </entry>
+  
+</feed>
