@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: java | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://dbwest.github.io/"/>
+  <updated>2013-09-30T17:30:41-04:00</updated>
+  <id>http://dbwest.github.io/</id>
+  <author>
+    <name><![CDATA[David West]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Groovy for Rubyists: Groovy's IRB]]></title>
+    <link href="http://dbwest.github.io/blog/2013/09/30/groovy-for-rubyists-groovys-irb/"/>
+    <updated>2013-09-30T13:50:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/09/30/groovy-for-rubyists-groovys-irb</id>
+    <content type="html"><![CDATA[<p>Any Rubyist would be sorely disappointed if Groovy did not have a <a href="http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> like IRB. Be not disappointed!
+<code>bash
+$ groovysh
+</code>
+Try <code>println "Hello world"</code>.</p>
+
+<p>Just in case you were curious, <code>puts "hi"</code> does not work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Groovy on OSX]]></title>
+    <link href="http://dbwest.github.io/blog/2013/09/30/installing-groovy-on-osx/"/>
+    <updated>2013-09-30T13:27:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/09/30/installing-groovy-on-osx</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m a big fan of Ruby, and love using its enumerators and syntax to make my life easier. I&rsquo;m also starting a new gig where the company is using Grails as a major part of their stack. So, I&rsquo;m enthusiastic about getting into Groovy and sharing my experience.</p>
+
+<h2>Getting Groovy</h2>
+
+<ul>
+<li>Download it from <a href="http://groovy.codehaus.org">here</a>. Get the zipped up binary (currently about 27M).</li>
+</ul>
+
+
+<h2>Installation</h2>
+
+<ul>
+<li>First reveal it in Finder and copy to /opt. You can open two Finder windows and use command-shift-g to open /opt. Then drag and drop.</li>
+<li>Depending on your permissions, /opt may only be write accessible by root. If so, use <code>sudo unzip</code> from the command line.</li>
+<li>It&rsquo;s nice to have a directory just named &lsquo;groovy&rsquo; instead of &lsquo;groovy-[version]&rsquo;. Do yourself a favor and make a symlink for switching versions easily later: <code>sudo ln -s groovy-[version] groovy</code>.</li>
+<li>Fix permissions in the &lsquo;bin&rsquo; directory: <code>chmod a+x *</code></li>
+<li>Put Groovy environment variables and such in your &lsquo;.bashrc&rsquo;, &lsquo;.profile&rsquo;, &lsquo;.zshrc&rsquo;, or whatever you use:
+``` bash .zshrc
+
+<h3>Groovy</h3>
+
+<p>GROOVY_HOME=/opt/groovy
+PATH=$PATH:$GROOVY_HOME/bin
+export GROOVY_HOME PATH
+```</p></li>
+<li>Source your changes: <code>source ~/.zshrc</code></li>
+<li>Make sure everything is groovy: <code>groovy -version</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
