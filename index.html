@@ -143,9 +143,11 @@
 <p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
 1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
 
-<pre><code>1. Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX 
-2. Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)
-</code></pre>
+<ul>
+<li>Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX</li>
+<li>Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)</li>
+</ul>
+
 
 
       

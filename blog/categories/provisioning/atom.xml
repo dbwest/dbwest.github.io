@@ -4,7 +4,7 @@
   <title><![CDATA[Category: provisioning | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/provisioning/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:02:36-04:00</updated>
+  <updated>2013-10-02T19:09:23-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -32,22 +32,22 @@
 <p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
 1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
 
-<pre><code>1. Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX 
-2. Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)
-</code></pre>
+<ul>
+<li>Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX</li>
+<li>Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)</li>
+</ul>
+
 
 <!-- more -->
 
 
-<pre><code>3. Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there's no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don't have to type in a password after a `sudo`. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like `# visudo` to configure sudo for the vagrant user this way.
-</code></pre>
+<ul>
+<li><p>Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there&rsquo;s no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don&rsquo;t have to type in a password after a <code>sudo</code>. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like <code># visudo</code> to configure sudo for the vagrant user this way.</p></li>
+<li><p>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:</p>
 
 <ol>
-<li>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:
-
-<ol>
-<li>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</li>
-<li>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:
+<li><p>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</p></li>
+<li><p>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:</p>
 
 <ol>
 <li>It downloads the OS based on information gleaned from a configuration file (Vagrant uses something called a &lsquo;Vagrantfile&rsquo;)</li>
@@ -59,7 +59,7 @@
 </li>
 </ol>
 </li>
-</ol>
+</ul>
 
 
 <h2>So simple</h2>
