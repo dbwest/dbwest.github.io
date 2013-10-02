@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:11:17-04:00</updated>
+  <updated>2013-10-02T19:23:38-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -71,9 +71,13 @@
 <h2>So simple</h2>
 
 <p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
-Basic Vagrant:
-1. Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a>
-2. Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p>
+Basic Vagrant:</p>
+
+<ol>
+<li><p>Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a></p></li>
+<li><p>Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p></li>
+</ol>
+
 
 <figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -125,11 +129,20 @@ Note: I am not even getting into what Puppet and Chef may be able to do to make 
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 </span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;precise64&quot;</span>
-</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;bootstrap.sh&quot;</span>
+</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">8080</span>
+</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;provision.sh&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><p>Try bringing the vagrant box up with <code>vagrant up</code></p></li>
+<li><p>You should now be able to add any html files in the vagrant_example directory, and see Apache serve them on localhost:8080.</p></li>
+<li><p>Check on the status of your Vagrant box with <code>vagrant status</code> and use <code>vagrant suspend</code> <code>vagrant resume</code> <code>vagrant halt</code> <code>vagrant destroy</code> and <code>vagrant up</code> to manage the box, turn it on, suspend it, etc.</p></li>
+</ol>
 
 ]]></content>
   </entry>

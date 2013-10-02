@@ -4,7 +4,7 @@
   <title><![CDATA[Category: devops | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:11:17-04:00</updated>
+  <updated>2013-10-02T19:23:38-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -71,23 +71,34 @@
 <h2>So simple</h2>
 
 <p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
-Basic Vagrant:
-1. Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a>
-2. Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile
-<code>bash Terminal
+Basic Vagrant:</p>
+
+<ol>
+<li><p>Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a></p></li>
+<li><p>Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p></li>
+</ol>
+
+
+<p><code>bash Terminal
 $ mkdir vagrant_example
 $ cd vagrant_example
 $ vagrant init precise64 http://files.vagrantup.com/precise64.box
-</code>
-3. Make a provisioning script. The basic process this involves is:</p>
+</code></p>
 
-<pre><code>- ssh into your Vagrant box with `vagrant ssh`
-- set up the software you want automatically set up manually one first time while keeping track of what you did to do it.
-- take out all interactive elements (possibly using flags during command line installation to answer 'yes' all the time, etc.)
-- make a script using what you've learned about what happens during the install process.
-Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.
-- Try this example provisioning script, which installs Apache on your Vagrant box. You're going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:
-</code></pre>
+<ol>
+<li>Make a provisioning script. The basic process this involves is:
+
+<ul>
+<li>ssh into your Vagrant box with <code>vagrant ssh</code></li>
+<li>set up the software you want automatically set up manually one first time while keeping track of what you did to do it.</li>
+<li>take out all interactive elements (possibly using flags during command line installation to answer &lsquo;yes&rsquo; all the time, etc.)</li>
+<li>make a script using what you&rsquo;ve learned about what happens during the install process.
+Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.</li>
+<li>Try this example provisioning script, which installs Apache on your Vagrant box. You&rsquo;re going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:</li>
+</ul>
+</li>
+</ol>
+
 
 <p>``` bash provision.sh</p>
 
@@ -98,17 +109,30 @@ apt-get update >/dev/null 2>&amp;1
 apt-get install -y apache2 >/dev/null 2>&amp;1
 rm -rf /var/www
 ln -fs /vagrant /var/www
-<code>
-4. You can use this example Vagrantfile now
-</code> ruby Vagrantfile
+```</p>
+
+<ol>
+<li>You can use this example Vagrantfile now</li>
+</ol>
+
+
+<p>``` ruby Vagrantfile
 Vagrant.configure(&ldquo;2&rdquo;) do |config|
 config.vm.box = &ldquo;precise64&rdquo;</p>
 
-<pre><code>config.vm.provision :shell, :path =&gt; "bootstrap.sh"
+<pre><code>config.vm.network "forwarded_port", guest: 80, host: 8080
+config.vm.provision :shell, :path =&gt; "provision.sh"
 </code></pre>
 
 <p>end
 ```</p>
+
+<ol>
+<li><p>Try bringing the vagrant box up with <code>vagrant up</code></p></li>
+<li><p>You should now be able to add any html files in the vagrant_example directory, and see Apache serve them on localhost:8080.</p></li>
+<li><p>Check on the status of your Vagrant box with <code>vagrant status</code> and use <code>vagrant suspend</code> <code>vagrant resume</code> <code>vagrant halt</code> <code>vagrant destroy</code> and <code>vagrant up</code> to manage the box, turn it on, suspend it, etc.</p></li>
+</ol>
+
 ]]></content>
   </entry>
   
