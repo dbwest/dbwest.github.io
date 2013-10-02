@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vagrant | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/vagrant/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:09:23-04:00</updated>
+  <updated>2013-10-02T19:11:17-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -20,12 +20,18 @@
     <id>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant</id>
     <content type="html"><![CDATA[<h2>It seems there&rsquo;s a problem here&hellip;</h2>
 
-<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:
-&ndash; A computer with an installed OS on the network
-&ndash; Access to shares needed for development
-&ndash; All the software needed for development installed
-&ndash; All services configured on the system
-&ndash; Sudo access or administrator access</p>
+<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
+
+<ul>
+<li>A computer with an installed OS on the network</li>
+<li>Access to shares needed for development</li>
+<li>All the software needed for development installed</li>
+<li>All services configured on the system</li>
+<li>Sudo access or administrator access</li>
+</ul>
+
+
+<p><strong>Just getting this simple stuff set up is taking too long. That&rsquo;s a lot of money and time down the tubes.</strong></p>
 
 <h2>Enter Vagrant</h2>
 
