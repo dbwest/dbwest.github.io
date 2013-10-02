@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-30T17:44:24-04:00</updated>
+  <updated>2013-10-02T19:02:36-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -19,7 +19,7 @@
     <updated>2013-09-30T13:50:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/30/groovy-for-rubyists-groovys-irb</id>
     <content type="html"><![CDATA[<p>Any Rubyist would be sorely disappointed if Groovy did not have a <a href="http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> like IRB. Be not disappointed!
-<code>bash
+<code>bash bash
 $ groovysh
 </code>
 Try <code>println "Hello world"</code>.</p>

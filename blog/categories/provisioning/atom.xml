@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: provisioning | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/provisioning/atom.xml" rel="self"/>
+  <link href="http://dbwest.github.io/"/>
+  <updated>2013-10-02T19:02:36-04:00</updated>
+  <id>http://dbwest.github.io/</id>
+  <author>
+    <name><![CDATA[David West]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DevOps with Vagrant]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/"/>
+    <updated>2013-10-02T12:31:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant</id>
+    <content type="html"><![CDATA[<h2>It seems there&rsquo;s a problem here&hellip;</h2>
+
+<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:
+&ndash; A computer with an installed OS on the network
+&ndash; Access to shares needed for development
+&ndash; All the software needed for development installed
+&ndash; All services configured on the system
+&ndash; Sudo access or administrator access</p>
+
+<h2>Enter Vagrant</h2>
+
+<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
+1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
+
+<pre><code>1. Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX 
+2. Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)
+</code></pre>
+
+<!-- more -->
+
+
+<pre><code>3. Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there's no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don't have to type in a password after a `sudo`. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like `# visudo` to configure sudo for the vagrant user this way.
+</code></pre>
+
+<ol>
+<li>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:
+
+<ol>
+<li>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</li>
+<li>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:
+
+<ol>
+<li>It downloads the OS based on information gleaned from a configuration file (Vagrant uses something called a &lsquo;Vagrantfile&rsquo;)</li>
+<li>It configures and installs software based on shell/chef/puppet scripts you provide, based on what you&rsquo;ve specified in the Vagrantfile</li>
+<li>It allows sandboxed, standard, replicateable setups that can be checked into version control without taking up much space it all if wanted. From all source, Vagrantfiles and the scripts they reference download all the heavy stuff. You can decide to keep the boxes on your machine, and start, stop, suspend them, or you can redownload them anytime. The setup is always the same, and if you get to a state you want to keep without having to wait on lengthy provisioning you can always repackage your box, and have a base image with more software installed, that may be less bare bones, but has a custom set of software you don&rsquo;t want to have to download each time.</li>
+<li>All your work with source code can be done on a share so that you can use your favorite IDEs, Text Editors, File Managers.</li>
+<li>The box and any servers it uses can be connected via network by forwarded ports or other configurations so you can connect to web interfaces, REST APIs, etc on the guest machine (the box)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h2>So simple</h2>
+
+<p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
+Basic Vagrant:
+1. Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a>
+2. Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile
+<code>bash Terminal
+$ mkdir vagrant_example
+$ cd vagrant_example
+$ vagrant init precise64 http://files.vagrantup.com/precise64.box
+</code>
+3. Make a provisioning script. The basic process this involves is:</p>
+
+<pre><code>- ssh into your Vagrant box with `vagrant ssh`
+- set up the software you want automatically set up manually one first time while keeping track of what you did to do it.
+- take out all interactive elements (possibly using flags during command line installation to answer 'yes' all the time, etc.)
+- make a script using what you've learned about what happens during the install process.
+Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.
+- Try this example provisioning script, which installs Apache on your Vagrant box. You're going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:
+</code></pre>
+
+<p>``` bash provision.sh</p>
+
+<h1>!/usr/bin/env bash</h1>
+
+<p>echo &ldquo;Installing Apache and setting it up&hellip;&rdquo;
+apt-get update >/dev/null 2>&amp;1
+apt-get install -y apache2 >/dev/null 2>&amp;1
+rm -rf /var/www
+ln -fs /vagrant /var/www
+<code>
+4. You can use this example Vagrantfile now
+</code> ruby Vagrantfile
+Vagrant.configure(&ldquo;2&rdquo;) do |config|
+config.vm.box = &ldquo;precise64&rdquo;</p>
+
+<pre><code>config.vm.provision :shell, :path =&gt; "bootstrap.sh"
+</code></pre>
+
+<p>end
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

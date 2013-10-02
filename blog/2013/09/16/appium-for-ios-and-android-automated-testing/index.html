@@ -9,9 +9,9 @@
   <meta name="author" content="David West">
 
    
-  <meta name="description" content="A howto on testing mobile web applications with Appium">
+  <meta name="description" content="A how-to on testing mobile web applications with Appium">
   
-  <meta name="keywords" content="appium,testing,android,ios,watir-webdriver,chromedriver,selenium">
+  <meta name="keywords" content="appium,testing,android,ios,watir-webdriver,chromedriver,selenium,how-to">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -61,7 +61,7 @@
   	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
   	      <ul class="nav">
     
-        <li ><a href="/index.html">Blog</a></li>
+        <li ><a href="/index.html">Testing</a></li>
     
 </ul>
 
@@ -148,7 +148,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o create brew testers
 </span></code></pre></td></tr></table></div></figure>
 
@@ -156,7 +156,7 @@
 <p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)
 2. <strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user testers
 </span><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user brew
@@ -174,7 +174,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /usr/local/bin
@@ -225,23 +225,6 @@
 </ol>
 </li>
 <li><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
 <li><strong>Install ruby:</strong>
 
 <ol>

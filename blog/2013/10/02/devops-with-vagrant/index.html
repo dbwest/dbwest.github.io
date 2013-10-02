@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>DevOps with Vagrant - Testblog</title>
+  <meta name="author" content="David West">
+
+   
+  <meta name="description" content="How-tos... with a focus on automated testing">
+  
+  <meta name="keywords" content="devops,provisioning, vagrant">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Testblog" type="application/atom+xml">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap-collapse.js"></script>
+  <script src="/js/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44419263-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <div class="navbar navbar-inverse navbar-static-top">
+  	<div class="navbar-inner">
+  	  <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="fui-menu-24"></span>
+        </a>
+  	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
+  	      <ul class="nav">
+    
+        <li ><a href="/index.html">Testing</a></li>
+    
+</ul>
+
+<ul class="nav pull-right">
+    
+    
+    
+    
+    
+    
+</ul>
+
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+  <div class="container" id="main">
+    <div class="span12">
+      <div class="row-fluid">
+        <div id="content">
+          <div>
+<article class="hentry" role="article">
+  
+
+  <header>
+  <div class="jumbotron">
+    DevOps With Vagrant
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T12:31:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>It seems there&rsquo;s a problem here&hellip;</h2>
+
+<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:
+&ndash; A computer with an installed OS on the network
+&ndash; Access to shares needed for development
+&ndash; All the software needed for development installed
+&ndash; All services configured on the system
+&ndash; Sudo access or administrator access</p>
+
+<h2>Enter Vagrant</h2>
+
+<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
+1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
+
+<pre><code>1. Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX 
+2. Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)
+</code></pre>
+
+<!-- more -->
+
+
+<pre><code>3. Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there's no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don't have to type in a password after a `sudo`. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like `# visudo` to configure sudo for the vagrant user this way.
+</code></pre>
+
+<ol>
+<li>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:
+
+<ol>
+<li>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</li>
+<li>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:
+
+<ol>
+<li>It downloads the OS based on information gleaned from a configuration file (Vagrant uses something called a &lsquo;Vagrantfile&rsquo;)</li>
+<li>It configures and installs software based on shell/chef/puppet scripts you provide, based on what you&rsquo;ve specified in the Vagrantfile</li>
+<li>It allows sandboxed, standard, replicateable setups that can be checked into version control without taking up much space it all if wanted. From all source, Vagrantfiles and the scripts they reference download all the heavy stuff. You can decide to keep the boxes on your machine, and start, stop, suspend them, or you can redownload them anytime. The setup is always the same, and if you get to a state you want to keep without having to wait on lengthy provisioning you can always repackage your box, and have a base image with more software installed, that may be less bare bones, but has a custom set of software you don&rsquo;t want to have to download each time.</li>
+<li>All your work with source code can be done on a share so that you can use your favorite IDEs, Text Editors, File Managers.</li>
+<li>The box and any servers it uses can be connected via network by forwarded ports or other configurations so you can connect to web interfaces, REST APIs, etc on the guest machine (the box)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h2>So simple</h2>
+
+<p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
+Basic Vagrant:
+1. Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a>
+2. Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir vagrant_example
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>vagrant_example
+</span><span class='line'><span class="nv">$ </span>vagrant init precise64 http://files.vagrantup.com/precise64.box
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Make a provisioning script. The basic process this involves is:
+
+<ul>
+<li>ssh into your Vagrant box with <code>vagrant ssh</code></li>
+<li>set up the software you want automatically set up manually one first time while keeping track of what you did to do it.</li>
+<li>take out all interactive elements (possibly using flags during command line installation to answer &lsquo;yes&rsquo; all the time, etc.)</li>
+<li>make a script using what you&rsquo;ve learned about what happens during the install process.
+Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.</li>
+<li>Try this example provisioning script, which installs Apache on your Vagrant box. You&rsquo;re going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:</li>
+</ul>
+</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>provision.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/usr/bin/env bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Installing Apache and setting it up...&quot;</span>
+</span><span class='line'>apt-get update &gt;/dev/null 2&gt;&amp;1
+</span><span class='line'>apt-get install -y apache2 &gt;/dev/null 2&gt;&amp;1
+</span><span class='line'>rm -rf /var/www
+</span><span class='line'>ln -fs /vagrant /var/www
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>You can use this example Vagrantfile now</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Vagrantfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;precise64&quot;</span>
+</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;bootstrap.sh&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+
+  <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+
+  <a href="/blog/categories/provisioning/"><span class="badge">provisioning</span></a>
+
+  <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
+
+
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/09/30/groovy-for-rubyists-groovys-irb/" title="Previous Post: Groovy for Rubyists: Groovy's IRB">&laquo; Groovy for Rubyists: Groovy's IRB</a>
+          
+          
+        </p>
+      </div>
+    </div>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+
+
+        </div>
+      </div>
+      <div class="row-fluid">
+        <footer class="footer-page" role="contentinfo">
+          <p>
+  Copyright &copy; 2013 - David West -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
+</p>
+
+
+        </footer>
+      </div>
+    </div>
+  </div>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'dbwestgithub';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

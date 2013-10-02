@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-09-30T17:44:24-04:00</updated>
+  <updated>2013-10-02T19:02:36-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -14,13 +14,128 @@
 
   
   <entry>
+    <title type="html"><![CDATA[DevOps with Vagrant]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/"/>
+    <updated>2013-10-02T12:31:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant</id>
+    <content type="html"><![CDATA[<h2>It seems there&rsquo;s a problem here&hellip;</h2>
+
+<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:
+&ndash; A computer with an installed OS on the network
+&ndash; Access to shares needed for development
+&ndash; All the software needed for development installed
+&ndash; All services configured on the system
+&ndash; Sudo access or administrator access</p>
+
+<h2>Enter Vagrant</h2>
+
+<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
+1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
+
+<pre><code>1. Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX 
+2. Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)
+</code></pre>
+
+<!-- more -->
+
+
+<pre><code>3. Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there's no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don't have to type in a password after a `sudo`. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like `# visudo` to configure sudo for the vagrant user this way.
+</code></pre>
+
+<ol>
+<li>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:
+
+<ol>
+<li>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</li>
+<li>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:
+
+<ol>
+<li>It downloads the OS based on information gleaned from a configuration file (Vagrant uses something called a &lsquo;Vagrantfile&rsquo;)</li>
+<li>It configures and installs software based on shell/chef/puppet scripts you provide, based on what you&rsquo;ve specified in the Vagrantfile</li>
+<li>It allows sandboxed, standard, replicateable setups that can be checked into version control without taking up much space it all if wanted. From all source, Vagrantfiles and the scripts they reference download all the heavy stuff. You can decide to keep the boxes on your machine, and start, stop, suspend them, or you can redownload them anytime. The setup is always the same, and if you get to a state you want to keep without having to wait on lengthy provisioning you can always repackage your box, and have a base image with more software installed, that may be less bare bones, but has a custom set of software you don&rsquo;t want to have to download each time.</li>
+<li>All your work with source code can be done on a share so that you can use your favorite IDEs, Text Editors, File Managers.</li>
+<li>The box and any servers it uses can be connected via network by forwarded ports or other configurations so you can connect to web interfaces, REST APIs, etc on the guest machine (the box)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h2>So simple</h2>
+
+<p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
+Basic Vagrant:
+1. Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a>
+2. Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir vagrant_example
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>vagrant_example
+</span><span class='line'><span class="nv">$ </span>vagrant init precise64 http://files.vagrantup.com/precise64.box
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Make a provisioning script. The basic process this involves is:
+
+<ul>
+<li>ssh into your Vagrant box with <code>vagrant ssh</code></li>
+<li>set up the software you want automatically set up manually one first time while keeping track of what you did to do it.</li>
+<li>take out all interactive elements (possibly using flags during command line installation to answer &lsquo;yes&rsquo; all the time, etc.)</li>
+<li>make a script using what you&rsquo;ve learned about what happens during the install process.
+Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.</li>
+<li>Try this example provisioning script, which installs Apache on your Vagrant box. You&rsquo;re going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:</li>
+</ul>
+</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>provision.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/usr/bin/env bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Installing Apache and setting it up...&quot;</span>
+</span><span class='line'>apt-get update &gt;/dev/null 2&gt;&amp;1
+</span><span class='line'>apt-get install -y apache2 &gt;/dev/null 2&gt;&amp;1
+</span><span class='line'>rm -rf /var/www
+</span><span class='line'>ln -fs /vagrant /var/www
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>You can use this example Vagrantfile now</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Vagrantfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;precise64&quot;</span>
+</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;bootstrap.sh&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Groovy for Rubyists: Groovy's IRB]]></title>
     <link href="http://dbwest.github.io/blog/2013/09/30/groovy-for-rubyists-groovys-irb/"/>
     <updated>2013-09-30T13:50:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/30/groovy-for-rubyists-groovys-irb</id>
     <content type="html"><![CDATA[<p>Any Rubyist would be sorely disappointed if Groovy did not have a <a href="http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> like IRB. Be not disappointed!</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>groovysh
 </span></code></pre></td></tr></table></div></figure>
 
@@ -143,7 +258,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o create brew testers
 </span></code></pre></td></tr></table></div></figure>
 
@@ -151,7 +266,7 @@
 <p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)
 2. <strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user testers
 </span><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user brew
@@ -169,7 +284,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /usr/local/bin
@@ -220,23 +335,6 @@
 </ol>
 </li>
 <li><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/
-</span><span class='line'>http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
 <li><strong>Install ruby:</strong>
 
 <ol>
