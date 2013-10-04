@@ -111,6 +111,135 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T21:53:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/IDEs/"><span class="badge">IDEs</span></a>
+          
+          <a href="/blog/categories/development/"><span class="badge">development</span></a>
+          
+          <a href="/blog/categories/text-editors/"><span class="badge">text-editors</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/">Getting Yourself a Development Environment That You Can Live With</a></h1>
+      <h2>If you&rsquo;re beginning programming&hellip;</h2>
+
+<p>If you&rsquo;re beginning programming, then one of the best things you can do is begin to find tools that suit you well.</p>
+
+<p><strong>Disclaimer about my biases</strong> I am a vi guy and I hate Eclipse.</p>
+
+<p>Biases disclosed, let me tell you what I can personally recommend:</p>
+
+<h2>vim Improved / vim Everywhere</h2>
+
+<p>I don&rsquo;t think I need to get too much into why vim is great. You can read about what other people think all over the internet. I do want to recommend a few things for people that are already in love with vi keybindings, but maybe want vim closer to an IDE (without learning configuration stuff yet) or people that want to be able to use vi in fun places (like IntelliJ, RubyMine, or in the Ruby IRB REPL.)</p>
+
+<ul>
+<li><p><strong>Instant vim IDE:</strong> spf-13 is a GitHub hosted distribution of vim with add-ons and much preconfiguration. It has some nice documentation on GitHub, and it includes nice things like autocomplete (though I&rsquo;d like to learn soon how to make it better, which I know you can do,) NERDTree for file traversing, CTRL-P for quickly accessing files, ZenCoding (now called emmet.io) for easy markup generation, TPope&rsquo;s surround plugin, etc. Another great thing about it, is it already is set up with Vundle, so you can easily browse and install packages.</p></li>
+<li><p><strong>Alternative to Eclipse (with vim keybidings):</strong> Please anything but Eclipse! JetBrains has a much better IDE (my bias, again) called IntelliJ IDEA. Get the IdeaVIM plugin by going to Preferences > Plugins. You&rsquo;ll want to change the shortcuts to go into and out of IdeaVIM mode, because they conflict with some shortcut for refactoring. I&rsquo;m just using the Community version of it now (which is free,) but even though it is normally somewhat expensive, they randomly have fire sales (usually on holidays) where you can buy it for cheap. I&rsquo;ve been using another, very similar, IDE by JetBrains just for Ruby, and it actually responds to mouse clicks, keystrokes, etc., in contrast to Eclipse (maybe I&rsquo;ll learn to stop hating Eclipse someday. Please, somebody tell me how to enjoy using it).</p></li>
+<li><p><strong>vim in a Ruby REPL:</strong> Check out the interactive-editor gem. It&rsquo;s very handy!</p></li>
+</ul>
+
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T19:25:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/Groovy/"><span class="badge">Groovy</span></a>
+          
+          <a href="/blog/categories/QA/"><span class="badge">QA</span></a>
+          
+          <a href="/blog/categories/Testing/"><span class="badge">Testing</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/02/geb-browser-automated-testing-with-groovy/">GEB: Browser Automated Testing with Groovy</a></h1>
+      <p>I&rsquo;ve been writing tests with watir-webdriver, Ruby, and Cucumber for the past few months. Some tests have used the precursor to Cheezy&rsquo;s pageobject gem,which is now deprecated, and though all the tests were still friendly to maintain, and eventually worked against Android and iOS simulators (via Appium), certain elements weren&rsquo;t always accessible, and at times I wished we had something more compatible with the Java stack the company was using. Last night, I saw a presentation on GEB, and, though I must admit I was busy trying to set up and download some Groovy and Grails stuff at the same time to get ready for future hack sessions, GEB looked familiar and at times better.</p>
+
+<h2>What I like about GEB</h2>
+
+<p>GEB looks neat to me, here are some reasons why:</p>
+
+<ul>
+<li>Support for any major testdriver and mobile testdrivers, too (pretty much the same as watir-webdriver)</li>
+<li>Integrates well with a Java stack</li>
+<li>Page Objects (The demonstrator showed some great applications, including making an object for the dashboard on a webapp and manipulating it using GEB)</li>
+<li>Really good selectors. This is probably what really elevates this over watir-webdriver. There were some things watir-webdriver could not select easily, this looks much better.</li>
+</ul>
+
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-02T12:31:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -129,7 +258,7 @@
     </div>
     <div class="span10">
       <h1 class="link"><a href="/blog/2013/10/02/devops-with-vagrant/">DevOps with Vagrant</a></h1>
-      <h2>It seems there&rsquo;s a problem here&hellip;</h2>
+      <h2>Developer Environment Setups are Frequently Too Slow</h2>
 
 <p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
 
@@ -422,7 +551,13 @@
     </div>
     <div class="span10">
       <h1 class="link"><a href="/blog/2013/09/16/appium-for-ios-and-android-automated-testing/">Appium for iOS and Android Automated Testing</a></h1>
-      <h2>Suggestion</h2>
+      <h2>Introduction</h2>
+
+<p>Wouldn&rsquo;t it be nice to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
+
+<p>Maybe sometime soon, I&rsquo;ll have a repo with a nice Vagrantfile in it. If you&rsquo;re vagrant savvy, you&rsquo;ll just be able to clone it, type <code>vagrant up</code> and have a similar setup. We&rsquo;ll see what happens&hellip;</p>
+
+<h2>Suggestion</h2>
 
 <p>If you get stuck, use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other Stack Exchange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
 
@@ -441,368 +576,9 @@
 
 <p><strong>note: administrative access required for part of setup</strong></p>
 
-<h2>Installation and Configuration</h2>
-
-<h3>Preliminary Setup: install XCode, the Command Line Tools and the iOS simulator</h3>
-
-<ol>
-<li><strong>Download XCode from the Apple Developer&rsquo;s website.</strong></li>
-<li><strong>Install it from the package</strong></li>
-<li><strong>After the XCode install is complete, install the Command Line Tools and the Simulator:</strong>
-
-<ul>
-<li>Start XCode, open XCode Preferences (command+,) and select downloads. Click the install button for the command line tools and iOS. Wait for the long downloads and follow all dialogues to install.</li>
-</ul>
-</li>
-</ol>
-
-
-<h3>Preliminary Setup: users and groups (admin access required)</h3>
-
-<ol>
-<li><strong>Setup groups for homebrew and automated test users:</strong> from terminal:</li>
-</ol>
-
-
-<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o create brew testers
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Enter your password as needed (you must be an admin to use a <code>sudo</code> command.)
-2. <strong>Add user to groups:</strong> This example uses <code>supertester</code> as an example user. You can replace that user with any user you need to add:</p>
-
-<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user testers
-</span><span class='line'><span class="nv">$ </span>sudo dseditgroup -o edit -a supertester -t user brew
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Install and configure homebrew package manager (admin needed)</h3>
-
-<ol>
-<li><strong>Visit the Homebrew website:</strong> <a href="http://brew.sh/">brew.sh</a></li>
-<li><strong>Install Homebrew:</strong> Paste this at the terminal prompt: <code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code></li>
-<li><strong>Change group for homebrew folder to &lsquo;brew&rsquo;:</strong> <code>sudo chgrp -R brew /usr/local</code> and type in your password.</li>
-<li><strong>Give permissions to &lsquo;brew&rsquo; group:</strong> <code>sudo chmod -R 775 /usr/local</code></li>
-<li><strong>Check to see that your permissions are working:</strong></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>bash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /usr/local/bin
-</span><span class='line'><span class="nv">$ </span>touch my_test_file.tmp
-</span><span class='line'><span class="nv">$ </span>ls
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Look for the file &lsquo;my_test_file.tmp&rsquo;. If it is there, your permissions are set up correctly. Congratulations! <strong>Get rid of your test file:</strong> <code>rm my_test_file.tmp</code></p>
-
-<h3>Install Appium</h3>
-
-<ul>
-<li><strong>For a graphical user interface (needed if using Lion)</strong>
-
-<ol>
-<li> <strong>Download the Appium Package and Install it by copying to Applications:</strong> The website is <a href="http://appium.io">appium.io</a>. You will</li>
-</ol>
-</li>
-<li><strong>For a command line install (possible if using Mountain Lion)</strong>
-  <strong>same as above, or:</strong>
-
-<ol>
-<li> <strong>Install node.js using brew:</strong> <code>brew install node</code></li>
-<li> <strong>Install appium globally using node&rsquo;s package manager &lsquo;npm&rsquo;:</strong> <code>sudo npm install -g appium</code></li>
-<li> <strong>Use the package manager to install webdriver, too:</strong> <code>npm install wd</code></li>
-</ol>
-</li>
-</ul>
-
-
-<h3>Install Ruby from source</h3>
-
-<ol>
-<li><strong>Download libyaml:</strong> from <a href="[http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz">http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz</a></li>
-<li><strong>Install libyaml:</strong>
-
-<ol>
-<li><strong>Go to the directory you downloaded it in, for example &lsquo;~/Downloads&rsquo;:</strong> <code>cd ~/Downloads</code></li>
-<li><strong>Unzip and untar it:</strong> <code>tar zxvf yaml-0.1.4.tar.gz</code></li>
-<li><strong>Enter the libyaml directory you extracted:</strong> <code>cd yaml-0.1.4</code></li>
-<li><strong>Enter these commands to install and wait while the source is compiled:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code>
-
-<ul>
-<li>If you want the mac to tell you when it is done, you can turn up your volume and type this in, instead: <code>configure &amp;&amp; make &amp;&amp; make install &amp;&amp; say "I am done"</code></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><strong>Download ruby:</strong> from <a href="http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz/">mirror 1</a>, <a href="http://xyz.lcs.mit.edu/ruby/ruby-1.9.3-p448.tar.gz/">mirror 2</a>, <a href="http://www.mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 3</a>, <a href="https://ftp.ruby-lang.org/pub/ruby/ruby-1.9.3-p448.tar.gz/">mirror 4</a>, or <a href="http://www.dnsbalance.ring.gr.jp/archives/lang/ruby/ruby-1.9.3-p448.tar.gz/">mirror5</a>.</li>
-<li><strong>Install ruby:</strong>
-
-<ol>
-<li><strong>Unzip it and untar it and enter the directory:</strong>  <code>tar zxvf ruby-1.9.3-p448.tar.gz &amp;&amp; cd ruby-1.9.3-p448</code></li>
-<li><strong>Compile source and install it using these commands:</strong> <code>configure &amp;&amp; make &amp;&amp; make install</code></li>
-<li><strong>Make a gem repository in your home directory:</strong> <code>mkdir ~/mygemrepository</code></li>
-<li><strong>Setup environment variables and paths:</strong> using &lsquo;nano&rsquo;, &lsquo;vi&rsquo;, or your text editor of choice:
-
-<ul>
-<li>Add <code>export GEM_HOME=~/mygemrepository</code> to the top of your ~/.bash_profile file.</li>
-<li><strong>Change your path so that it includes &lsquo;~/mygemrepository/bin&rsquo; and so that &lsquo;/usr/local/bin&rsquo; takes precedence over &lsquo;/usr/bin&rsquo;:</strong> you should make or edit a line in your &lsquo;~/.bash_profile&rsquo; so that you have something like: <code>PATH=/usr/local/bin:~/mygemrepository/bin:$PATH</code>. It is important that &lsquo;/usr/local/bin&rsquo; and &lsquo;~/mygemrepository/bin&rsquo; be at the beginning of this line, as shown.</li>
-</ul>
-</li>
-<li><strong>Test to see that ruby is installed properly, and that you are using the correct version:</strong>
-
-<ul>
-<li>Type <code>ruby -v</code> at the command prompt. The output should include: &lsquo;ruby 1.9.3p448&rsquo;</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-
-
-<h3>Install Chromedriver</h3>
-
-<ol>
-<li><strong>Download Chromedriver</strong>
-
-<ol>
-<li><strong>Download chromedriver_mac32_2.2.zip if you have Mountain Lion or chromedriver_mac32_2.1.zip if you have Lion:</strong>
-
-<ul>
-<li>To see all downloads you will need to choose &lsquo;All downloads&rsquo; from the dropdown in the search section and press the search button.</li>
-</ul>
-</li>
-<li><strong>Move chromedriver to a binary directory in your path:</strong>
-
-<ul>
-<li>Choose the download you need, unzip it, and from a prompt type (assuming you have it in ~/Downloads and downloaded 2.1:) <code>cp ~/Downloads/chromedriver_mac32_2.1.zip /usr/local/bin</code></li>
-</ul>
-</li>
-<li><strong>Test your installation:</strong>
-
-<ul>
-<li>Test it by typing, from a prompt: <code>chromedriver</code></li>
-<li>You should see &lsquo;Started ChromeDriver (v2.1) on port 9515&rsquo;</li>
-<li><strong>Troubleshooting Advice:</strong> If you see an error you can try downloading an earlier version.</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-
-
-<h3>Install the GenyMotion Android Emulator (needs admin access)</h3>
-
-<p><strong>These instructions may change soon, so I&rsquo;ll keep them short</strong>
-1. <strong>Download and Install VirtualBox (needs admin access)</strong></p>
-
-<pre><code>- Search for it on Google.
-- Download it off the Oracle website.
-- Open the package and follow the dialogues to install VirtualBox (it is required for the Genymotion Android Emulator)
-</code></pre>
-
-<ol>
-<li><strong>Setup Genymotion (current as of 09/16/13) and load the Chrome web browser onto it</strong>
-
-<ul>
-<li>Currently you need an account (free) with Genymotion to download or even install virtual machine images using Genymotion. Sign up for one.</li>
-<li>Download the Genymotion installer for mac.</li>
-<li>Install it using the dialogues.</li>
-<li>Open Genymotion, log into the Genymotion cloud, and choose an image to download from the cloud. If you don&rsquo;t know what to download, just make sure that the Android operating system is 4.1 or higher.</li>
-<li>Click on the applications menu button and choose the &lsquo;Play Store&rsquo; application.</li>
-<li>Search for Chrome, and download it.</li>
-</ul>
-</li>
-</ol>
-
-
-<h2>Android SDK Setup</h2>
-
-<ol>
-<li><strong>Download the SDK:</strong> Go to <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a> and click the &lsquo;Download the SDK&rsquo; button.</li>
-<li><strong>Install the SDK by following the directions</strong></li>
-<li><strong>Set up paths to Android Tools:</strong>
-<strong>Add these lines to the top of your &lsquo;~/.bash_profile&rsquo;:</strong></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>~/.bash_profile    </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span>/usr/local/adt/sdk
-</span><span class='line'><span class="nb">export </span><span class="nv">ANDROID_SDK</span><span class="o">=</span><span class="nv">$ANDROID_HOME</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Add these lines to the bottom of your &lsquo;~/.bash_profile&rsquo;:</strong></p>
-
-<figure class='code'><figcaption><span>~/.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>/tools
-</span><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>/platform-tools
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>These commands should now work without errors:</strong> <code>adb</code> and <code>android</code></p>
-
-<h2>Appium Setup</h2>
-
-<h3>Starting the Application if the GUI is installed</h3>
-
-<ol>
-<li><strong>Open the Appium application.</strong>
-
-<ul>
-<li><strong>If using the Android emulator:</strong>
-
-<ol>
-<li> <strong>Click the &lsquo;Package&rsquo; checkbox after clicking the &lsquo;Android&rsquo; tab</strong></li>
-<li> <strong>Enter <code>com.android.chrome</code> into the &lsquo;Package&rsquo; text field</strong></li>
-<li> <strong>Click &lsquo;Launch&rsquo;</strong></li>
-</ol>
-</li>
-<li><strong>If using the iOS simulator:</strong>
-
-<ol>
-<li> <strong>Click the &lsquo;iOS&rsquo; tab</strong></li>
-<li> <strong>Check the box that says &lsquo;Use mobile Safari&rsquo;</strong></li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<h3>Starting Appium from the Command Line</h3>
-
-<ol>
-<li><strong>For Android:</strong> At the terminal: <code>appium --app-pkg com.android.chrome</code></li>
-<li><strong>For iOS:</strong> <code>appium --safari</code></li>
-</ol>
-
-
-<h2>Sample Android Scripts to Test Your Setup:</h2>
-
-<p>These scripts should work with your setup, they are also available at <a href="https://gist.github.com/dbwest/6551886"><code>https://gist.github.com/dbwest/6551886</code></a>. They are written for Android. Connect your device or start your emulator before using these:
-<strong>Make a file called <code>Gemfile</code> with the following contents:</strong></p>
-
-<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="s2">&quot;http://rubygems.org&quot;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;watir-webdriver&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;selenium-webdriver&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Make a file called <code>android_appium.rb</code> with the following contents:</strong></p>
-
-<figure class='code'><figcaption><span>android_appium.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Connect your device or start your emulator before running this script</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># make sure appium and chromedriver aren&#39;t started yet.</span>
-</span><span class='line'><span class="c1">#`killall node`</span>
-</span><span class='line'><span class="sb">`killall chromedriver`</span>
-</span><span class='line'><span class="c1">#start appium server for chrome pkg and redirect stderr and stdout to keep terminal clean</span>
-</span><span class='line'><span class="c1">#`appium --app-pkg com.android.chrome &amp; &gt; /dev/null 2&gt;&amp;1`</span>
-</span><span class='line'><span class="c1">#prepare device</span>
-</span><span class='line'><span class="sb">`adb kill-server`</span>
-</span><span class='line'><span class="sb">`adb devices`</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;fileutils&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;watir-webdriver&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;selenium-webdriver&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># The address and port of our Appium server</span>
-</span><span class='line'><span class="n">server_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:4723/wd/hub/&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Hash with information selenium webdriver needs </span>
-</span><span class='line'><span class="n">capabilities</span> <span class="o">=</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>      <span class="s1">&#39;app&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;chrome&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;device&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Android&#39;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#Setup webdrivers to talk to Appium and mobile chrome and use implicit_waits to poll with long timeout to see if pages are loaded</span>
-</span><span class='line'><span class="n">driver</span> <span class="o">=</span> <span class="ss">Selenium</span><span class="p">:</span><span class="ss">:WebDriver</span><span class="o">.</span><span class="n">for</span><span class="p">(</span><span class="ss">:remote</span><span class="p">,</span> <span class="ss">:desired_capabilities</span> <span class="o">=&gt;</span> <span class="n">capabilities</span><span class="p">,</span> <span class="ss">:url</span> <span class="o">=&gt;</span> <span class="n">server_url</span><span class="p">)</span><span class="c1">#, :profile =&gt; profile)</span>
-</span><span class='line'><span class="n">browser</span> <span class="o">=</span> <span class="ss">Watir</span><span class="p">:</span><span class="ss">:Browser</span><span class="o">.</span><span class="n">new</span> <span class="n">driver</span>
-</span><span class='line'><span class="n">browser</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">manage</span><span class="o">.</span><span class="n">timeouts</span><span class="o">.</span><span class="n">implicit_wait</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;new ANDROID Watir browser object instantiated&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#automated browser code using Watir browser object and methods</span>
-</span><span class='line'><span class="n">browser</span><span class="o">.</span><span class="n">goto</span> <span class="s2">&quot;http://saucelabs.com/test/guinea-pig&quot;</span>
-</span><span class='line'><span class="n">browser</span><span class="o">.</span><span class="n">text_field</span><span class="p">(</span><span class="ss">:id</span><span class="o">=&gt;</span><span class="s2">&quot;fbemail&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span> <span class="s1">&#39;bobbaxter@bobbaxter.me&#39;</span>
-</span><span class='line'><span class="nb">sleep</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#screenshot code</span>
-</span><span class='line'><span class="sx">%x(adb shell /system/bin/screencap -p /sdcard/screenshot.png)</span>
-</span><span class='line'><span class="n">time</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_i</span><span class="o">.</span><span class="n">to_s</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s1">&#39;current directory is&#39;</span> <span class="o">+</span> <span class="sb">`pwd`</span>
-</span><span class='line'><span class="sx">%x(adb pull /sdcard/screenshot.png ./images/screenshot.png)</span>
-</span><span class='line'><span class="no">FileUtils</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="s1">&#39;./images/screenshot.png&#39;</span><span class="p">,</span> <span class="s1">&#39;./images/screenshot&#39;</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="sx">%x(adb shell rm /sdcard/screenshot.png)</span>
-</span><span class='line'><span class="sb">`open images/.`</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Credit Where Credit is Due</h2>
-
-<ul>
-<li>Matt Bussa</li>
-<li>Pillar Technology</li>
-<li>Dan Cuellar and Levi Wilson</li>
-<li>Justin Lipps at Sauce Labs</li>
-<li>And all the testers that know tons about Watir and Ruby: Alister Scott, Zeljko Filipin</li>
-</ul>
-
 
       
-      
+       <a href="/blog/2013/09/16/appium-for-ios-and-android-automated-testing/">Read on &rarr;</a> 
     </div>
   </div>
 

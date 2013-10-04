@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:23:38-04:00</updated>
+  <updated>2013-10-04T07:08:44-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -14,11 +14,58 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Getting Yourself a Development Environment That You Can Live With]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/"/>
+    <updated>2013-10-02T21:53:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with</id>
+    <content type="html"><![CDATA[<h2>If you&rsquo;re beginning programming&hellip;</h2>
+
+<p>If you&rsquo;re beginning programming, then one of the best things you can do is begin to find tools that suit you well.</p>
+
+<p><strong>Disclaimer about my biases</strong> I am a vi guy and I hate Eclipse.</p>
+
+<p>Biases disclosed, let me tell you what I can personally recommend:</p>
+
+<h2>vim Improved / vim Everywhere</h2>
+
+<p>I don&rsquo;t think I need to get too much into why vim is great. You can read about what other people think all over the internet. I do want to recommend a few things for people that are already in love with vi keybindings, but maybe want vim closer to an IDE (without learning configuration stuff yet) or people that want to be able to use vi in fun places (like IntelliJ, RubyMine, or in the Ruby IRB REPL.)</p>
+
+<ul>
+<li><p><strong>Instant vim IDE:</strong> spf-13 is a GitHub hosted distribution of vim with add-ons and much preconfiguration. It has some nice documentation on GitHub, and it includes nice things like autocomplete (though I&rsquo;d like to learn soon how to make it better, which I know you can do,) NERDTree for file traversing, CTRL-P for quickly accessing files, ZenCoding (now called emmet.io) for easy markup generation, TPope&rsquo;s surround plugin, etc. Another great thing about it, is it already is set up with Vundle, so you can easily browse and install packages.</p></li>
+<li><p><strong>Alternative to Eclipse (with vim keybidings):</strong> Please anything but Eclipse! JetBrains has a much better IDE (my bias, again) called IntelliJ IDEA. Get the IdeaVIM plugin by going to Preferences > Plugins. You&rsquo;ll want to change the shortcuts to go into and out of IdeaVIM mode, because they conflict with some shortcut for refactoring. I&rsquo;m just using the Community version of it now (which is free,) but even though it is normally somewhat expensive, they randomly have fire sales (usually on holidays) where you can buy it for cheap. I&rsquo;ve been using another, very similar, IDE by JetBrains just for Ruby, and it actually responds to mouse clicks, keystrokes, etc., in contrast to Eclipse (maybe I&rsquo;ll learn to stop hating Eclipse someday. Please, somebody tell me how to enjoy using it).</p></li>
+<li><p><strong>vim in a Ruby REPL:</strong> Check out the interactive-editor gem. It&rsquo;s very handy!</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GEB: Browser Automated Testing with Groovy]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/02/geb-browser-automated-testing-with-groovy/"/>
+    <updated>2013-10-02T19:25:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/02/geb-browser-automated-testing-with-groovy</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been writing tests with watir-webdriver, Ruby, and Cucumber for the past few months. Some tests have used the precursor to Cheezy&rsquo;s pageobject gem,which is now deprecated, and though all the tests were still friendly to maintain, and eventually worked against Android and iOS simulators (via Appium), certain elements weren&rsquo;t always accessible, and at times I wished we had something more compatible with the Java stack the company was using. Last night, I saw a presentation on GEB, and, though I must admit I was busy trying to set up and download some Groovy and Grails stuff at the same time to get ready for future hack sessions, GEB looked familiar and at times better.</p>
+
+<h2>What I like about GEB</h2>
+
+<p>GEB looks neat to me, here are some reasons why:</p>
+
+<ul>
+<li>Support for any major testdriver and mobile testdrivers, too (pretty much the same as watir-webdriver)</li>
+<li>Integrates well with a Java stack</li>
+<li>Page Objects (The demonstrator showed some great applications, including making an object for the dashboard on a webapp and manipulating it using GEB)</li>
+<li>Really good selectors. This is probably what really elevates this over watir-webdriver. There were some things watir-webdriver could not select easily, this looks much better.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[DevOps with Vagrant]]></title>
     <link href="http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/"/>
     <updated>2013-10-02T12:31:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant</id>
-    <content type="html"><![CDATA[<h2>It seems there&rsquo;s a problem here&hellip;</h2>
+    <content type="html"><![CDATA[<h2>Developer Environment Setups are Frequently Too Slow</h2>
 
 <p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
 
@@ -235,7 +282,13 @@ Note: I am not even getting into what Puppet and Chef may be able to do to make 
     <link href="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/"/>
     <updated>2013-09-16T13:38:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing</id>
-    <content type="html"><![CDATA[<h2>Suggestion</h2>
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<p>Wouldn&rsquo;t it be nice to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
+
+<p>Maybe sometime soon, I&rsquo;ll have a repo with a nice Vagrantfile in it. If you&rsquo;re vagrant savvy, you&rsquo;ll just be able to clone it, type <code>vagrant up</code> and have a similar setup. We&rsquo;ll see what happens&hellip;</p>
+
+<h2>Suggestion</h2>
 
 <p>If you get stuck, use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other Stack Exchange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
 
@@ -253,6 +306,9 @@ Note: I am not even getting into what Puppet and Chef may be able to do to make 
 
 
 <p><strong>note: administrative access required for part of setup</strong></p>
+
+<!-- more -->
+
 
 <h2>Installation and Configuration</h2>
 

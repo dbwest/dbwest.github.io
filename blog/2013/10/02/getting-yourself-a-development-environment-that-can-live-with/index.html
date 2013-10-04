@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Getting Yourself a Development Environment That You Can Live With - Testblog</title>
+  <meta name="author" content="David West">
+
+   
+  <meta name="description" content="How-tos... with a focus on automated testing">
+  
+  <meta name="keywords" content="vi,intellij,beginning,development,workflow">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Testblog" type="application/atom+xml">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap-collapse.js"></script>
+  <script src="/js/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44419263-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <div class="navbar navbar-inverse navbar-static-top">
+  	<div class="navbar-inner">
+  	  <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="fui-menu-24"></span>
+        </a>
+  	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
+  	      <ul class="nav">
+    
+        <li ><a href="/index.html">Testing</a></li>
+    
+</ul>
+
+<ul class="nav pull-right">
+    
+    
+    
+    
+    
+    
+</ul>
+
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+  <div class="container" id="main">
+    <div class="span12">
+      <div class="row-fluid">
+        <div id="content">
+          <div>
+<article class="hentry" role="article">
+  
+
+  <header>
+  <div class="jumbotron">
+    Getting Yourself a Development Environment That You Can Live With
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T21:53:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>If you&rsquo;re beginning programming&hellip;</h2>
+
+<p>If you&rsquo;re beginning programming, then one of the best things you can do is begin to find tools that suit you well.</p>
+
+<p><strong>Disclaimer about my biases</strong> I am a vi guy and I hate Eclipse.</p>
+
+<p>Biases disclosed, let me tell you what I can personally recommend:</p>
+
+<h2>vim Improved / vim Everywhere</h2>
+
+<p>I don&rsquo;t think I need to get too much into why vim is great. You can read about what other people think all over the internet. I do want to recommend a few things for people that are already in love with vi keybindings, but maybe want vim closer to an IDE (without learning configuration stuff yet) or people that want to be able to use vi in fun places (like IntelliJ, RubyMine, or in the Ruby IRB REPL.)</p>
+
+<ul>
+<li><p><strong>Instant vim IDE:</strong> spf-13 is a GitHub hosted distribution of vim with add-ons and much preconfiguration. It has some nice documentation on GitHub, and it includes nice things like autocomplete (though I&rsquo;d like to learn soon how to make it better, which I know you can do,) NERDTree for file traversing, CTRL-P for quickly accessing files, ZenCoding (now called emmet.io) for easy markup generation, TPope&rsquo;s surround plugin, etc. Another great thing about it, is it already is set up with Vundle, so you can easily browse and install packages.</p></li>
+<li><p><strong>Alternative to Eclipse (with vim keybidings):</strong> Please anything but Eclipse! JetBrains has a much better IDE (my bias, again) called IntelliJ IDEA. Get the IdeaVIM plugin by going to Preferences > Plugins. You&rsquo;ll want to change the shortcuts to go into and out of IdeaVIM mode, because they conflict with some shortcut for refactoring. I&rsquo;m just using the Community version of it now (which is free,) but even though it is normally somewhat expensive, they randomly have fire sales (usually on holidays) where you can buy it for cheap. I&rsquo;ve been using another, very similar, IDE by JetBrains just for Ruby, and it actually responds to mouse clicks, keystrokes, etc., in contrast to Eclipse (maybe I&rsquo;ll learn to stop hating Eclipse someday. Please, somebody tell me how to enjoy using it).</p></li>
+<li><p><strong>vim in a Ruby REPL:</strong> Check out the interactive-editor gem. It&rsquo;s very handy!</p></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+
+  <a href="/blog/categories/IDEs/"><span class="badge">IDEs</span></a>
+
+  <a href="/blog/categories/development/"><span class="badge">development</span></a>
+
+  <a href="/blog/categories/text-editors/"><span class="badge">text-editors</span></a>
+
+
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/10/02/geb-browser-automated-testing-with-groovy/" title="Previous Post: GEB: Browser Automated Testing with Groovy">&laquo; GEB: Browser Automated Testing with Groovy</a>
+          
+          
+        </p>
+      </div>
+    </div>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+
+
+        </div>
+      </div>
+      <div class="row-fluid">
+        <footer class="footer-page" role="contentinfo">
+          <p>
+  Copyright &copy; 2013 - David West -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
+</p>
+
+
+        </footer>
+      </div>
+    </div>
+  </div>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'dbwestgithub';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

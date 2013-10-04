@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-02T19:23:38-04:00</updated>
+  <updated>2013-10-04T07:08:44-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -18,7 +18,13 @@
     <link href="http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/"/>
     <updated>2013-09-16T13:38:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing</id>
-    <content type="html"><![CDATA[<h2>Suggestion</h2>
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<p>Wouldn&rsquo;t it be nice to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
+
+<p>Maybe sometime soon, I&rsquo;ll have a repo with a nice Vagrantfile in it. If you&rsquo;re vagrant savvy, you&rsquo;ll just be able to clone it, type <code>vagrant up</code> and have a similar setup. We&rsquo;ll see what happens&hellip;</p>
+
+<h2>Suggestion</h2>
 
 <p>If you get stuck, use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other Stack Exchange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
 
@@ -36,6 +42,9 @@
 
 
 <p><strong>note: administrative access required for part of setup</strong></p>
+
+<!-- more -->
+
 
 <h2>Installation and Configuration</h2>
 
@@ -319,7 +328,7 @@ puts &ldquo;new ANDROID Watir browser object instantiated&rdquo;</p>
 <h1>automated browser code using Watir browser object and methods</h1>
 
 <p>browser.goto &ldquo;<a href="http://saucelabs.com/test/guinea-pig">http://saucelabs.com/test/guinea-pig</a>&rdquo;
-browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x62;&#111;&#98;&#x62;&#97;&#x78;&#116;&#x65;&#114;&#x40;&#98;&#111;&#x62;&#98;&#x61;&#120;&#116;&#x65;&#x72;&#x2e;&#x6d;&#101;">&#98;&#111;&#98;&#x62;&#97;&#120;&#116;&#101;&#114;&#x40;&#98;&#111;&#x62;&#98;&#x61;&#x78;&#x74;&#x65;&#114;&#46;&#x6d;&#x65;</a>&rsquo;
+browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x62;&#111;&#98;&#x62;&#97;&#120;&#116;&#x65;&#x72;&#x40;&#x62;&#x6f;&#98;&#98;&#97;&#120;&#116;&#x65;&#114;&#46;&#x6d;&#101;">&#98;&#111;&#x62;&#x62;&#97;&#x78;&#x74;&#x65;&#x72;&#64;&#x62;&#x6f;&#x62;&#x62;&#x61;&#x78;&#116;&#101;&#x72;&#46;&#x6d;&#x65;</a>&rsquo;
 sleep 1</p>
 
 <h1>screenshot code</h1>

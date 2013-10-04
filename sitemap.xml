@@ -4,7 +4,7 @@
         <loc>
             http://dbwest.github.io/blog/2013/09/16/appium-for-ios-and-android-automated-testing/
         </loc>
-        <lastmod>2013-10-01T07:59:10-04:00</lastmod>
+        <lastmod>2013-10-03T08:00:45-04:00</lastmod>
     </url>
     <url>
         <loc>
@@ -22,15 +22,27 @@
     </url>
     <url>
         <loc>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/</loc>
-        <lastmod>2013-10-02T19:23:27-04:00</lastmod>
+        <lastmod>2013-10-03T10:27:37-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://dbwest.github.io/blog/2013/10/02/geb-browser-automated-testing-with-groovy/
+        </loc>
+        <lastmod>2013-10-03T07:54:03-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/
+        </loc>
+        <lastmod>2013-10-03T10:25:05-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/blog/archives/</loc>
-        <lastmod>2013-10-02T19:23:27-04:00</lastmod>
+        <lastmod>2013-10-03T10:27:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/</loc>
-        <lastmod>2013-10-02T19:23:27-04:00</lastmod>
+        <lastmod>2013-10-03T10:27:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/robots.txt</loc>
