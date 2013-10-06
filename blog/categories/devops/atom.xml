@@ -4,7 +4,7 @@
   <title><![CDATA[Category: devops | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-04T07:08:44-04:00</updated>
+  <updated>2013-10-06T09:09:35-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Skipping Provisioning by Saving a Preconfigured Vagrant Box]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box/"/>
+    <updated>2013-10-05T10:48:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box</id>
+    <content type="html"><![CDATA[<h2>Why you might want to do this</h2>
+
+<p>Even though automatic provisioning with Vagrant is great, because it allows you to take a download a publicly available base image that takes up gigs of space and custom configure it with a very small, easily shareable repo, sometimes it would be really nice to skip provisioning, because it can take a long time. Downloading and setting up things like databases or Java or things with tons of dependencies can take a long time, and you also need an internet connection to do the provisioning. Sometimes, it would be nice to just have something preconfigured, so you don&rsquo;t have to wait for the install process to go through. Preconfigured boxes will be bigger, but sometimes that&rsquo;s ok. You have a larger download up front but don&rsquo;t have to wait for the setup. So if you have a complicated provisioning process that takes a long time, this is what you can do.</p>
+
+<h2>Use an existing environment</h2>
+
+<p>If you already have a box, just <code>vagrant up</code>, and then <code>vagrant ssh</code> into it.</p>
+
+<p>Otherwise, for the sake of making this post self-contained:</p>
+
+<p><code>bash Terminal
+$ mkdir vagrant_example
+$ cd vagrant_example
+$ vagrant init precise64 http://files.vagrantup.com/precise64.box
+$ vagrant up
+$ vagrant ssh
+</code></p>
+
+<p>Now you can install some random program. We&rsquo;ll install Appium:
+<code>bash Terminal
+vagrant@precise64:~$ wget http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+vagrant@precise64:~$ tar zxvf http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+vagrant@precise64:~$ echo 'PATH="$PATH:$HOME/node-v0.10.20-linux-x64/bin"' &gt;&gt; ~/.bashrc
+vagrant@precise64:~$ source ~/.bashrc
+vagrant@precise64:~$ sudo npm install -g appium
+vagrant@precise64:~$ sudo npm install wd
+</code></p>
+
+<p>Finally, exit out of ssh with <code>CTRL-D</code> and type <code>vagrant package</code>. Vagrant will tell you where it puts the box. You can rename it, copy it, distribute it, and share it on a local network or on the internet.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DevOps with Vagrant]]></title>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Groovy | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/groovy/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-04T07:08:44-04:00</updated>
+  <updated>2013-10-06T09:09:35-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -19,8 +19,6 @@
     <updated>2013-10-02T19:25:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/10/02/geb-browser-automated-testing-with-groovy</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been writing tests with watir-webdriver, Ruby, and Cucumber for the past few months. Some tests have used the precursor to Cheezy&rsquo;s pageobject gem,which is now deprecated, and though all the tests were still friendly to maintain, and eventually worked against Android and iOS simulators (via Appium), certain elements weren&rsquo;t always accessible, and at times I wished we had something more compatible with the Java stack the company was using. Last night, I saw a presentation on GEB, and, though I must admit I was busy trying to set up and download some Groovy and Grails stuff at the same time to get ready for future hack sessions, GEB looked familiar and at times better.</p>
-
-<h2>What I like about GEB</h2>
 
 <p>GEB looks neat to me, here are some reasons why:</p>
 

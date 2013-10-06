@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: IDEs | Testblog]]></title>
-  <link href="http://dbwest.github.io/blog/categories/ides/atom.xml" rel="self"/>
+  <title><![CDATA[Category: vim | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
   <updated>2013-10-06T09:09:35-04:00</updated>
   <id>http://dbwest.github.io/</id>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing Paste and Word Wrap in vim]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/05/fixing-paste-in-vim/"/>
+    <updated>2013-10-05T11:24:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/05/fixing-paste-in-vim</id>
+    <content type="html"><![CDATA[<p>I noticed that sometimes when I paste source into vim (I&rsquo;m using the OSX clipboard and iTerm), the indentation gets messed up. This is easy to fix simply use <code>:set paste</code>, then paste will work.</p>
+
+<p>To turn on word wrap in vim use <code>:set wrap</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim Everywhere]]></title>

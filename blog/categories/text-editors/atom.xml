@@ -4,7 +4,7 @@
   <title><![CDATA[Category: text-editors | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/text-editors/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-04T07:08:44-04:00</updated>
+  <updated>2013-10-06T09:09:35-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -14,19 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Getting Yourself a Development Environment That You Can Live With]]></title>
+    <title type="html"><![CDATA[vim Everywhere]]></title>
     <link href="http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/"/>
     <updated>2013-10-02T21:53:00-04:00</updated>
     <id>http://dbwest.github.io/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with</id>
-    <content type="html"><![CDATA[<h2>If you&rsquo;re beginning programming&hellip;</h2>
-
-<p>If you&rsquo;re beginning programming, then one of the best things you can do is begin to find tools that suit you well.</p>
-
-<p><strong>Disclaimer about my biases</strong> I am a vi guy and I hate Eclipse.</p>
-
-<p>Biases disclosed, let me tell you what I can personally recommend:</p>
-
-<h2>vim Improved / vim Everywhere</h2>
+    <content type="html"><![CDATA[<h2>vim Improved (vi improved improved)/ vim Everywhere</h2>
 
 <p>I don&rsquo;t think I need to get too much into why vim is great. You can read about what other people think all over the internet. I do want to recommend a few things for people that are already in love with vi keybindings, but maybe want vim closer to an IDE (without learning configuration stuff yet) or people that want to be able to use vi in fun places (like IntelliJ, RubyMine, or in the Ruby IRB REPL.)</p>
 

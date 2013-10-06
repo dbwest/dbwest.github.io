@@ -67,8 +67,14 @@
 
 <ul class="nav pull-right">
     
+    <li><a href="http://github.com/dbwest" title="Github Profile"><i class="icon-github-sign social-navbar"></i></a></li>
     
     
+    
+    <li><a href="http://twitter.com/dbwest" title="Twitter Profile"><i class="icon-twitter-sign social-navbar"></i></a></li>
+    
+    
+    <li><a href="http://plus.google.com/david.b.west" title="Google+ Profile"><i class="icon-google-plus-sign social-navbar"></i></a></li>
     
     
     
@@ -111,6 +117,219 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-05T11:24:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/vim/"><span class="badge">vim</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/05/fixing-paste-in-vim/">Fixing Paste and Word Wrap in vim</a></h1>
+      <p>I noticed that sometimes when I paste source into vim (I&rsquo;m using the OSX clipboard and iTerm), the indentation gets messed up. This is easy to fix simply use <code>:set paste</code>, then paste will work.</p>
+
+<p>To turn on word wrap in vim use <code>:set wrap</code>.</p>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-05T10:48:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+          
+          <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box/">Skipping Provisioning by Saving a Preconfigured Vagrant Box</a></h1>
+      <h2>Why you might want to do this</h2>
+
+<p>Even though automatic provisioning with Vagrant is great, because it allows you to take a download a publicly available base image that takes up gigs of space and custom configure it with a very small, easily shareable repo, sometimes it would be really nice to skip provisioning, because it can take a long time. Downloading and setting up things like databases or Java or things with tons of dependencies can take a long time, and you also need an internet connection to do the provisioning. Sometimes, it would be nice to just have something preconfigured, so you don&rsquo;t have to wait for the install process to go through. Preconfigured boxes will be bigger, but sometimes that&rsquo;s ok. You have a larger download up front but don&rsquo;t have to wait for the setup. So if you have a complicated provisioning process that takes a long time, this is what you can do.</p>
+
+<h2>Use an existing environment</h2>
+
+<p>If you already have a box, just <code>vagrant up</code>, and then <code>vagrant ssh</code> into it.</p>
+
+<p>Otherwise, for the sake of making this post self-contained:</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir vagrant_example
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>vagrant_example
+</span><span class='line'><span class="nv">$ </span>vagrant init precise64 http://files.vagrantup.com/precise64.box
+</span><span class='line'><span class="nv">$ </span>vagrant up
+</span><span class='line'><span class="nv">$ </span>vagrant ssh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can install some random program. We&rsquo;ll install Appium:</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vagrant@precise64:~<span class="nv">$ </span>wget http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>tar zxvf http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;PATH=&quot;$PATH:$HOME/node-v0.10.20-linux-x64/bin&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span><span class="nb">source</span> ~/.bashrc
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>sudo npm install -g appium
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>sudo npm install wd
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, exit out of ssh with <code>CTRL-D</code> and type <code>vagrant package</code>. Vagrant will tell you where it puts the box. You can rename it, copy it, distribute it, and share it on a local network or on the internet.</p>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-05T10:36:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/blogging/"><span class="badge">blogging</span></a>
+          
+          <a href="/blog/categories/octopress/"><span class="badge">octopress</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/05/drafts-in-octopress/">Drafts in Octopress</a></h1>
+      <p>Let&rsquo;s say you start a new post in Octopress</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake new_post<span class="o">[</span><span class="s2">&quot;Drafts in Octopress&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next time you generate and deploy the post will be published.
+To change that, edit the file like so, <code>adding published: false</code> to the YAML header:</p>
+
+<figure class='code'><figcaption><span>2013-10-05-drafts-in-octopress.markdown</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;Drafts</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Octopress&quot;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2013-10-05 10:36</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">published</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When you&rsquo;re previewing with <code>rake preview</code>, you will still to see the drafts that aren&rsquo;t published.</p>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-02T21:53:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -124,20 +343,14 @@
           
           <a href="/blog/categories/text-editors/"><span class="badge">text-editors</span></a>
           
+          <a href="/blog/categories/vim/"><span class="badge">vim</span></a>
+          
           </div>
           
     </div>
     <div class="span10">
-      <h1 class="link"><a href="/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/">Getting Yourself a Development Environment That You Can Live With</a></h1>
-      <h2>If you&rsquo;re beginning programming&hellip;</h2>
-
-<p>If you&rsquo;re beginning programming, then one of the best things you can do is begin to find tools that suit you well.</p>
-
-<p><strong>Disclaimer about my biases</strong> I am a vi guy and I hate Eclipse.</p>
-
-<p>Biases disclosed, let me tell you what I can personally recommend:</p>
-
-<h2>vim Improved / vim Everywhere</h2>
+      <h1 class="link"><a href="/blog/2013/10/02/getting-yourself-a-development-environment-that-can-live-with/">vim Everywhere</a></h1>
+      <h2>vim Improved (vi improved improved)/ vim Everywhere</h2>
 
 <p>I don&rsquo;t think I need to get too much into why vim is great. You can read about what other people think all over the internet. I do want to recommend a few things for people that are already in love with vi keybindings, but maybe want vim closer to an IDE (without learning configuration stuff yet) or people that want to be able to use vi in fun places (like IntelliJ, RubyMine, or in the Ruby IRB REPL.)</p>
 
@@ -197,8 +410,6 @@
     <div class="span10">
       <h1 class="link"><a href="/blog/2013/10/02/geb-browser-automated-testing-with-groovy/">GEB: Browser Automated Testing with Groovy</a></h1>
       <p>I&rsquo;ve been writing tests with watir-webdriver, Ruby, and Cucumber for the past few months. Some tests have used the precursor to Cheezy&rsquo;s pageobject gem,which is now deprecated, and though all the tests were still friendly to maintain, and eventually worked against Android and iOS simulators (via Appium), certain elements weren&rsquo;t always accessible, and at times I wished we had something more compatible with the Java stack the company was using. Last night, I saw a presentation on GEB, and, though I must admit I was busy trying to set up and download some Groovy and Grails stuff at the same time to get ready for future hack sessions, GEB looked familiar and at times better.</p>
-
-<h2>What I like about GEB</h2>
 
 <p>GEB looks neat to me, here are some reasons why:</p>
 
@@ -553,7 +764,7 @@
       <h1 class="link"><a href="/blog/2013/09/16/appium-for-ios-and-android-automated-testing/">Appium for iOS and Android Automated Testing</a></h1>
       <h2>Introduction</h2>
 
-<p>Wouldn&rsquo;t it be nice to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
+<p>On the very slim chance that you&rsquo;ve found this blog, and you need to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
 
 <p>Maybe sometime soon, I&rsquo;ll have a repo with a nice Vagrantfile in it. If you&rsquo;re vagrant savvy, you&rsquo;ll just be able to clone it, type <code>vagrant up</code> and have a similar setup. We&rsquo;ll see what happens&hellip;</p>
 

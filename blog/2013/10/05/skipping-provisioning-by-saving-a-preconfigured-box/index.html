@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Installing Groovy on OSX - Testblog</title>
+  <title>Skipping Provisioning by Saving a Preconfigured Vagrant Box - Testblog</title>
   <meta name="author" content="David West">
 
    
   <meta name="description" content="How-tos... with a focus on automated testing">
   
-  <meta name="keywords" content="groovy,java,howto">
+  <meta name="keywords" content="vagrant,new,preinstall,existing,package,save">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.io/blog/2013/09/30/installing-groovy-on-osx">
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -94,7 +94,7 @@
 
   <header>
   <div class="jumbotron">
-    Installing Groovy on OSX
+    Skipping Provisioning by Saving a Preconfigured Vagrant Box
 	<h5>
 
 
@@ -107,47 +107,52 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2013-09-30T13:27:00-04:00" pubdate data-updated="true">Sep 30<span>th</span>, 2013</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-05T10:48:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2013</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>I&rsquo;m a big fan of Ruby, and love using its enumerators and syntax to make my life easier. I&rsquo;m also starting a new gig where the company is using Grails as a major part of their stack. So, I&rsquo;m enthusiastic about getting into Groovy and sharing my experience.</p>
+      <h2>Why you might want to do this</h2>
 
-<h2>Getting Groovy</h2>
+<p>Even though automatic provisioning with Vagrant is great, because it allows you to take a download a publicly available base image that takes up gigs of space and custom configure it with a very small, easily shareable repo, sometimes it would be really nice to skip provisioning, because it can take a long time. Downloading and setting up things like databases or Java or things with tons of dependencies can take a long time, and you also need an internet connection to do the provisioning. Sometimes, it would be nice to just have something preconfigured, so you don&rsquo;t have to wait for the install process to go through. Preconfigured boxes will be bigger, but sometimes that&rsquo;s ok. You have a larger download up front but don&rsquo;t have to wait for the setup. So if you have a complicated provisioning process that takes a long time, this is what you can do.</p>
 
-<ul>
-<li>Download it from <a href="http://groovy.codehaus.org">here</a>. Get the zipped up binary (currently about 27M).</li>
-</ul>
+<h2>Use an existing environment</h2>
 
+<p>If you already have a box, just <code>vagrant up</code>, and then <code>vagrant ssh</code> into it.</p>
 
-<h2>Installation</h2>
+<p>Otherwise, for the sake of making this post self-contained:</p>
 
-<ul>
-<li>First reveal it in Finder and copy to /opt. You can open two Finder windows and use command-shift-g to open /opt. Then drag and drop.</li>
-<li>Depending on your permissions, /opt may only be write accessible by root. If so, use <code>sudo unzip</code> from the command line.</li>
-<li>It&rsquo;s nice to have a directory just named &lsquo;groovy&rsquo; instead of &lsquo;groovy-[version]&rsquo;. Do yourself a favor and make a symlink for switching versions easily later: <code>sudo ln -s groovy-[version] groovy</code>.</li>
-<li>Fix permissions in the &lsquo;bin&rsquo; directory: <code>chmod a+x *</code></li>
-<li>Put Groovy environment variables and such in your &lsquo;.bashrc&rsquo;, &lsquo;.profile&rsquo;, &lsquo;.zshrc&rsquo;, or whatever you use:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span>.zshrc</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">### Groovy</span>
-</span><span class='line'><span class="nv">GROOVY_HOME</span><span class="o">=</span>/opt/groovy
-</span><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GROOVY_HOME</span>/bin
-</span><span class='line'><span class="nb">export </span>GROOVY_HOME PATH
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir vagrant_example
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>vagrant_example
+</span><span class='line'><span class="nv">$ </span>vagrant init precise64 http://files.vagrantup.com/precise64.box
+</span><span class='line'><span class="nv">$ </span>vagrant up
+</span><span class='line'><span class="nv">$ </span>vagrant ssh
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>Source your changes: <code>source ~/.zshrc</code></li>
-<li>Make sure everything is groovy: <code>groovy -version</code></li>
-</ul>
+<p>Now you can install some random program. We&rsquo;ll install Appium:</p>
 
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vagrant@precise64:~<span class="nv">$ </span>wget http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>tar zxvf http://nodejs.org/dist/v0.10.20/node-v0.10.20-linux-x64.tar.gz
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;PATH=&quot;$PATH:$HOME/node-v0.10.20-linux-x64/bin&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span><span class="nb">source</span> ~/.bashrc
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>sudo npm install -g appium
+</span><span class='line'>vagrant@precise64:~<span class="nv">$ </span>sudo npm install wd
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, exit out of ssh with <code>CTRL-D</code> and type <code>vagrant package</code>. Vagrant will tell you where it puts the box. You can rename it, copy it, distribute it, and share it on a local network or on the internet.</p>
 
     </div>
   </div>
@@ -166,11 +171,9 @@
 
 
 
-  <a href="/blog/categories/groovy/"><span class="badge">groovy</span></a>
+  <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
 
-  <a href="/blog/categories/howto/"><span class="badge">howto</span></a>
-
-  <a href="/blog/categories/java/"><span class="badge">java</span></a>
+  <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
 
 
 
@@ -200,10 +203,10 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2013/09/18/starting-up-the-genymotion-emulator-from-the-commandline/" title="Previous Post: Starting up the GenyMotion emulator from the commandline">&laquo; Starting up the GenyMotion emulator from the commandline</a>
+            <a class="basic-alignment left" href="/blog/2013/10/05/drafts-in-octopress/" title="Previous Post: Drafts in Octopress">&laquo; Drafts in Octopress</a>
           
           
-            <a class="basic-alignment right" href="/blog/2013/09/30/groovy-for-rubyists-groovys-irb/" title="Next Post: Groovy for Rubyists: Groovy's IRB">Groovy for Rubyists: Groovy's IRB &raquo;</a>
+            <a class="basic-alignment right" href="/blog/2013/10/05/fixing-paste-in-vim/" title="Next Post: Fixing Paste and Word Wrap in vim">Fixing Paste and Word Wrap in vim &raquo;</a>
           
         </p>
       </div>
@@ -242,8 +245,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dbwest.github.io/blog/2013/09/30/installing-groovy-on-osx/';
-        var disqus_url = 'http://dbwest.github.io/blog/2013/09/30/installing-groovy-on-osx/';
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/05/skipping-provisioning-by-saving-a-preconfigured-box/';
         var disqus_script = 'embed.js';
       
     (function () {
