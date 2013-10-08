@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-08T15:11:05-04:00</updated>
+  <updated>2013-10-08T15:23:32-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Making autocomplete better for my vim setup]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup/"/>
+    <updated>2013-10-08T15:19:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup</id>
+    <content type="html"><![CDATA[<p><a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">This post</a> is awesome.</p>
+
+<p>I&rsquo;m hoping it will make autocompletion better in vim (I&rsquo;m using neocomplcache.) Will see soon.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fixing Paste and Word Wrap in vim]]></title>

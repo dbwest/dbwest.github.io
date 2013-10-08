@@ -69,12 +69,18 @@
         <lastmod>2013-10-08T14:51:55-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup/
+        </loc>
+        <lastmod>2013-10-08T15:22:56-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://dbwest.github.io/blog/archives/</loc>
-        <lastmod>2013-10-08T15:10:56-04:00</lastmod>
+        <lastmod>2013-10-08T15:22:56-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/</loc>
-        <lastmod>2013-10-08T15:10:56-04:00</lastmod>
+        <lastmod>2013-10-08T15:22:56-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/robots.txt</loc>
