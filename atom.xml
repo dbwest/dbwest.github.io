@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-08T07:53:02-04:00</updated>
+  <updated>2013-10-08T13:36:50-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -24,11 +24,15 @@
 
 <h2>What&rsquo;s Next</h2>
 
-<p>I still need to
-&ndash; Find a way to have the box drive tests on simulators on the host machine. I&rsquo;m going to see if the guest box can do this, even if the host box isn&rsquo;t the machine with Appium. I want the Vagrant box to have as much on it as I can put on it, and I want to see if it can be where Appium resides.
-&ndash; Modify the tests to use Appium remotely on the Vagrant box. I&rsquo;ll want to fork a test repo I&rsquo;ve been working on, modify it to work with the new setup
-&ndash; Make jobs to kick off the tests.
-&ndash; And maybe more! I&rsquo;ll find out&hellip;</p>
+<p>I still need to</p>
+
+<ul>
+<li>Find a way to have the box drive tests on simulators on the host machine. I&rsquo;m going to see if the guest box can do this, even if the host box isn&rsquo;t the machine with Appium. I want the Vagrant box to have as much on it as I can put on it, and I want to see if it can be where Appium resides.</li>
+<li>Modify the tests to use Appium remotely on the Vagrant box. I&rsquo;ll want to fork a test repo I&rsquo;ve been working on, modify it to work with the new setup</li>
+<li>Make jobs to kick off the tests.</li>
+<li>And maybe more! I&rsquo;ll find out&hellip;</li>
+</ul>
+
 
 <p>The prospect of doing this is very exciting to me. Setting all this up takes a lot of steps, so when done by hand, it may work on one machine and not on another. This should get closer to solving that.</p>
 ]]></content>
