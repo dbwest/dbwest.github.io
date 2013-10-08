@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Installing Jenkins Plugins from the Commandline - Testblog</title>
+  <title>Boxen: Github's tool for automated developer environment setup - Testblog</title>
   <meta name="author" content="David West">
 
    
   <meta name="description" content="How-tos... with a focus on automated testing">
   
-  <meta name="keywords" content="Jenkins,plugins,CLI,commandline">
+  <meta name="keywords" content="">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline">
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -92,7 +92,7 @@
 
   <header>
   <div class="jumbotron">
-    Installing Jenkins Plugins From the Commandline
+    Boxen: Github's Tool for Automated Developer Environment Setup
 	<h5>
 
 
@@ -105,19 +105,20 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-08T13:57:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-08T14:46:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>To make it easier to write provisioning scripts, I looked for a way to use the commandline to install Jenkins plugins. This is what is working for me:</p>
+      <p>This is old news, but Github has open sourced <a href="http://boxen.github.com/">Boxen</a> the tool it uses inhouse for automated dev environment setup.</p>
 
-<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vagrant@precise64:/run/jenkins/war/WEB-INF<span class="nv">$ </span>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
-</span></code></pre></td></tr></table></div></figure>
+<p>It uses <a href="http://puppetlabs.com/">Puppet</a> for everything, and only supports OSX Mountain Lion and above (so it&rsquo;s Mac-only).</p>
 
+<p>I&rsquo;ve been wanting to learn Puppet, so I&rsquo;m going to check it out.</p>
 
-<p>Worked like a charm&hellip;you might have to restart Jenkins afterwards (<code>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ restart</code> is one way&hellip;)</p>
+<p>Anyone interested in learning Puppet might start <a href="http://puppetlabs.com/misc/pdf-doc">here</a> where you can download all the Puppet docs.</p>
+
+<p>Another good place may be <a href="http://grahamgilbert.com/blog/2013/01/25/getting-started-with-puppet-part-1/">Graham Gilbert&rsquo;s tutorials</a>.</p>
 
     </div>
   </div>
@@ -136,11 +137,11 @@
 
 
 
-  <a href="/blog/categories/CI/"><span class="badge">CI</span></a>
-
-  <a href="/blog/categories/Jenkins/"><span class="badge">Jenkins</span></a>
+  <a href="/blog/categories/OSX/"><span class="badge">OSX</span></a>
 
   <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+
+  <a href="/blog/categories/mac/"><span class="badge">mac</span></a>
 
 
 
@@ -170,10 +171,8 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/" title="Previous Post: Moving Towards a Complete Testing Environment in a Box">&laquo; Moving Towards a Complete Testing Environment in a Box</a>
+            <a class="basic-alignment left" href="/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/" title="Previous Post: Installing Jenkins Plugins from the Commandline">&laquo; Installing Jenkins Plugins from the Commandline</a>
           
-          
-            <a class="basic-alignment right" href="/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup/" title="Next Post: Boxen: Github's tool for automated developer environment setup">Boxen: Github's tool for automated developer environment setup &raquo;</a>
           
         </p>
       </div>
@@ -212,8 +211,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/';
-        var disqus_url = 'http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/';
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup/';
         var disqus_script = 'embed.js';
       
     (function () {

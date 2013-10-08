@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OSX | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/osx/atom.xml" rel="self"/>
+  <link href="http://dbwest.github.io/"/>
+  <updated>2013-10-08T14:52:14-04:00</updated>
+  <id>http://dbwest.github.io/</id>
+  <author>
+    <name><![CDATA[David West]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Boxen: Github's tool for automated developer environment setup]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup/"/>
+    <updated>2013-10-08T14:46:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup</id>
+    <content type="html"><![CDATA[<p>This is old news, but Github has open sourced <a href="http://boxen.github.com/">Boxen</a> the tool it uses inhouse for automated dev environment setup.</p>
+
+<p>It uses <a href="http://puppetlabs.com/">Puppet</a> for everything, and only supports OSX Mountain Lion and above (so it&rsquo;s Mac-only).</p>
+
+<p>I&rsquo;ve been wanting to learn Puppet, so I&rsquo;m going to check it out.</p>
+
+<p>Anyone interested in learning Puppet might start <a href="http://puppetlabs.com/misc/pdf-doc">here</a> where you can download all the Puppet docs.</p>
+
+<p>Another good place may be <a href="http://grahamgilbert.com/blog/2013/01/25/getting-started-with-puppet-part-1/">Graham Gilbert&rsquo;s tutorials</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
