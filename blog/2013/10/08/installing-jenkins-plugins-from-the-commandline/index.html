@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Jenkins - Testblog</title>
+  <title>Installing Jenkins Plugins from the Commandline - Testblog</title>
   <meta name="author" content="David West">
 
    
-  <meta name="description" content="Category: Jenkins">
+  <meta name="description" content="How-tos... with a focus on automated testing">
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content="Jenkins,plugins,CLI,commandline">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.ioblog/categories/jenkins">
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -86,96 +86,106 @@
     <div class="span12">
       <div class="row-fluid">
         <div id="content">
-          <article role="article">
+          <div>
+<article class="hentry" role="article">
   
+
   <header>
-    <div class="jumbotron">
-      Category: Jenkins
+  <div class="jumbotron">
+    Installing Jenkins Plugins From the Commandline
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-08T13:57:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <p>To make it easier to write provisioning scripts, I looked for a way to use the commandline to install Jenkins plugins. This is what is working for me:</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vagrant@precise64:/run/jenkins/war/WEB-INF<span class="nv">$ </span>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Worked like a charm&hellip;you might have to restart Jenkins afterwards (<code>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ restart</code> is one way&hellip;)</p>
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+
+  <a href="/blog/categories/CI/"><span class="badge">CI</span></a>
+
+  <a href="/blog/categories/Jenkins/"><span class="badge">Jenkins</span></a>
+
+  <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+
+
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+      </div>
+      
+      
     </div>
     
-  </header>
-  
-  <div id="blog-archives" class="category">
-
-  
-  <div class="row-fluid">
-    <div class="span1">
-  	
-  	
-  	  
-  	    <h2>2013</h2>
-  	
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/" title="Previous Post: Moving Towards a Complete Testing Environment in a Box">&laquo; Moving Towards a Complete Testing Environment in a Box</a>
+          
+          
+        </p>
+      </div>
     </div>
-    <div class="span11">
-      <article>
-  	
-<div class="row-fluid">
-	<div class="span1">
-		<h1 class="date-time"><time datetime="2013-10-08T13:57:00-04:00" pubdate><span class='month'>Oct</span> <span class='day'>08</span><span class='year'><!--2013--></span></time></h1>
-	</div>
-	<div class="span10">
-		<h1><a href="/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/">Installing Jenkins Plugins from the Commandline</a></h1>
-	</div>
-</div>
-
-<div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span10">
-		
-
-		<footer class="archive">
-		  <span class="categories">posted in <a class='category' href='/blog/categories/ci/'>CI</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/devops/'>devops</a></span>
-		</footer>
-		
-	</div>
-</div>
-
-
-  	</article>
-    </div>
-  </div>
-
-  
-  <div class="row-fluid">
-    <div class="span1">
-  	
-  	
-    </div>
-    <div class="span11">
-      <article>
-  	
-<div class="row-fluid">
-	<div class="span1">
-		<h1 class="date-time"><time datetime="2013-10-08T07:42:00-04:00" pubdate><span class='month'>Oct</span> <span class='day'>08</span><span class='year'><!--2013--></span></time></h1>
-	</div>
-	<div class="span10">
-		<h1><a href="/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/">Moving Towards a Complete Testing Environment in a Box</a></h1>
-	</div>
-</div>
-
-<div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span10">
-		
-
-		<footer class="archive">
-		  <span class="categories">posted in <a class='category' href='/blog/categories/appium/'>Appium</a>, <a class='category' href='/blog/categories/ci/'>CI</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>, <a class='category' href='/blog/categories/cucumber/'>cucumber</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/rvm/'>rvm</a></span>
-		</footer>
-		
-	</div>
-</div>
-
-
-  	</article>
-    </div>
-  </div>
-
-</div>
-
+  </footer>
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
 
 
 
@@ -199,7 +209,10 @@
       var disqus_shortname = 'dbwestgithub';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

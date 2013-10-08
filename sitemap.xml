@@ -57,12 +57,18 @@
         <lastmod>2013-10-08T13:36:14-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/
+        </loc>
+        <lastmod>2013-10-08T14:00:38-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://dbwest.github.io/blog/archives/</loc>
-        <lastmod>2013-10-08T13:36:14-04:00</lastmod>
+        <lastmod>2013-10-08T14:00:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/</loc>
-        <lastmod>2013-10-08T13:36:14-04:00</lastmod>
+        <lastmod>2013-10-08T14:00:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/robots.txt</loc>

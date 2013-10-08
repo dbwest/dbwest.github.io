@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-08T13:39:18-04:00</updated>
+  <updated>2013-10-08T14:00:50-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -328,7 +328,7 @@ puts &ldquo;new ANDROID Watir browser object instantiated&rdquo;</p>
 <h1>automated browser code using Watir browser object and methods</h1>
 
 <p>browser.goto &ldquo;<a href="http://saucelabs.com/test/guinea-pig">http://saucelabs.com/test/guinea-pig</a>&rdquo;
-browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#98;&#x6f;&#x62;&#x62;&#97;&#120;&#x74;&#101;&#x72;&#64;&#98;&#x6f;&#98;&#98;&#97;&#120;&#116;&#101;&#x72;&#46;&#109;&#101;">&#x62;&#111;&#x62;&#x62;&#97;&#x78;&#x74;&#101;&#x72;&#x40;&#x62;&#111;&#x62;&#x62;&#x61;&#120;&#116;&#101;&#114;&#46;&#109;&#101;</a>&rsquo;
+browser.text_field(:id=>&ldquo;fbemail&rdquo;).set &lsquo;<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x62;&#111;&#x62;&#98;&#x61;&#x78;&#x74;&#x65;&#x72;&#x40;&#x62;&#111;&#x62;&#98;&#97;&#x78;&#116;&#x65;&#x72;&#46;&#x6d;&#x65;">&#x62;&#x6f;&#x62;&#x62;&#97;&#120;&#x74;&#101;&#x72;&#64;&#x62;&#111;&#98;&#98;&#x61;&#120;&#x74;&#x65;&#x72;&#x2e;&#x6d;&#101;</a>&rsquo;
 sleep 1</p>
 
 <h1>screenshot code</h1>

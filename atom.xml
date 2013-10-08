@@ -4,7 +4,7 @@
   <title><![CDATA[Testblog]]></title>
   <link href="http://dbwest.github.io/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-08T13:39:18-04:00</updated>
+  <updated>2013-10-08T14:00:50-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Jenkins Plugins from the Commandline]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline/"/>
+    <updated>2013-10-08T13:57:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/08/installing-jenkins-plugins-from-the-commandline</id>
+    <content type="html"><![CDATA[<p>To make it easier to write provisioning scripts, I looked for a way to use the commandline to install Jenkins plugins. This is what is working for me:</p>
+
+<figure class='code'><figcaption><span>Terminal</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vagrant@precise64:/run/jenkins/war/WEB-INF<span class="nv">$ </span>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Worked like a charm&hellip;you might have to restart Jenkins afterwards (<code>java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ restart</code> is one way&hellip;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Moving Towards a Complete Testing Environment in a Box]]></title>
