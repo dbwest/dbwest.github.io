@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Appium | Testblog]]></title>
-  <link href="http://dbwest.github.io/blog/categories/appium/atom.xml" rel="self"/>
+  <title><![CDATA[Category: rvm | Testblog]]></title>
+  <link href="http://dbwest.github.io/blog/categories/rvm/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
   <updated>2013-10-08T07:53:02-04:00</updated>
   <id>http://dbwest.github.io/</id>

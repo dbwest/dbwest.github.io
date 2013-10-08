@@ -51,12 +51,18 @@
         <lastmod>2013-10-05T11:29:09-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://dbwest.github.io/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/
+        </loc>
+        <lastmod>2013-10-08T07:52:53-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://dbwest.github.io/blog/archives/</loc>
-        <lastmod>2013-10-06T09:09:08-04:00</lastmod>
+        <lastmod>2013-10-08T07:52:53-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/</loc>
-        <lastmod>2013-10-06T09:09:08-04:00</lastmod>
+        <lastmod>2013-10-08T07:52:53-04:00</lastmod>
     </url>
     <url>
         <loc>http://dbwest.github.io/robots.txt</loc>

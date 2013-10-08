@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Vagrant - Testblog</title>
+  <title>Moving Towards a Complete Testing Environment in a Box - Testblog</title>
   <meta name="author" content="David West">
 
    
-  <meta name="description" content="Category: Vagrant">
+  <meta name="description" content="How-tos... with a focus on automated testing">
   
   <meta name="keywords" content="">
 
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.ioblog/categories/vagrant">
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -88,60 +88,119 @@
     <div class="span12">
       <div class="row-fluid">
         <div id="content">
-          <article role="article">
+          <div>
+<article class="hentry" role="article">
   
+
   <header>
-    <div class="jumbotron">
-      Category: Vagrant
-    </div>
-    
-  </header>
-  
-  <div id="blog-archives" class="category">
+  <div class="jumbotron">
+    Moving Towards a Complete Testing Environment in a Box
+	<h5>
+
+
+
+
+
+
+
 
   
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-08T07:42:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
+  </div>
+</header>
   <div class="row-fluid">
-    <div class="span1">
-  	
-  	
-  	  
-  	    <h2>2013</h2>
-  	
-    </div>
-    <div class="span11">
-      <article>
-  	
-<div class="row-fluid">
-	<div class="span1">
-		<h1 class="date-time"><time datetime="2013-10-08T07:42:00-04:00" pubdate><span class='month'>Oct</span> <span class='day'>08</span><span class='year'><!--2013--></span></time></h1>
-	</div>
-	<div class="span10">
-		<h1><a href="/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/">Moving Towards a Complete Testing Environment in a Box</a></h1>
-	</div>
-</div>
+    <div class="span12">
+      <h2>Current Status</h2>
 
-<div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span10">
-		
+<p>I&rsquo;ve been working on a self contained Vagrant box for testing. Currently it loads, Appium, Jenkins, and rvm and some other things. It provisions from a base image and forwards the ports for Jenkins.</p>
 
-		<footer class="archive">
-		  <span class="categories">posted in <a class='category' href='/blog/categories/appium/'>Appium</a>, <a class='category' href='/blog/categories/ci/'>CI</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>, <a class='category' href='/blog/categories/cucumber/'>cucumber</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/rvm/'>rvm</a></span>
-		</footer>
-		
-	</div>
-</div>
+<h2>What&rsquo;s Next</h2>
 
+<p>I still need to
+&ndash; Find a way to have the box drive tests on simulators on the host machine. I&rsquo;m going to see if the guest box can do this, even if the host box isn&rsquo;t the machine with Appium. I want the Vagrant box to have as much on it as I can put on it, and I want to see if it can be where Appium resides.
+&ndash; Modify the tests to use Appium remotely on the Vagrant box. I&rsquo;ll want to fork a test repo I&rsquo;ve been working on, modify it to work with the new setup
+&ndash; Make jobs to kick off the tests.
+&ndash; And maybe more! I&rsquo;ll find out&hellip;</p>
 
-  	</article>
+<p>The prospect of doing this is very exciting to me. Setting all this up takes a lot of steps, so when done by hand, it may work on one machine and not on another. This should get closer to solving that.</p>
+
     </div>
   </div>
 
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+
+  <a href="/blog/categories/Appium/"><span class="badge">Appium</span></a>
+
+  <a href="/blog/categories/CI/"><span class="badge">CI</span></a>
+
+  <a href="/blog/categories/Jenkins/"><span class="badge">Jenkins</span></a>
+
+  <a href="/blog/categories/Vagrant/"><span class="badge">Vagrant</span></a>
+
+  <a href="/blog/categories/cucumber/"><span class="badge">cucumber</span></a>
+
+  <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+
+  <a href="/blog/categories/rvm/"><span class="badge">rvm</span></a>
+
+
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/10/05/fixing-paste-in-vim/" title="Previous Post: Fixing Paste and Word Wrap in vim">&laquo; Fixing Paste and Word Wrap in vim</a>
+          
+          
+        </p>
+      </div>
+    </div>
+  </footer>
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
 
 
 
@@ -165,7 +224,10 @@
       var disqus_shortname = 'dbwestgithub';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

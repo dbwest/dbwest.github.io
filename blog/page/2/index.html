@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Vagrant - Testblog</title>
+  <title>Testblog</title>
   <meta name="author" content="David West">
 
    
-  <meta name="description" content="Category: Vagrant">
+  <meta name="description" content="How-tos... with a focus on automated testing">
   
   <meta name="keywords" content="">
 
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.ioblog/categories/vagrant">
+  <link rel="canonical" href="http://dbwest.github.io/blog/page/2">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -88,61 +88,107 @@
     <div class="span12">
       <div class="row-fluid">
         <div id="content">
-          <article role="article">
-  
-  <header>
-    <div class="jumbotron">
-      Category: Vagrant
-    </div>
-    
-  </header>
-  
-  <div id="blog-archives" class="category">
+          <div class="jumbotron">
+  <div class="container">
+    Hi. I&#8217;m David West.
+    <h3 class="tagline">Here are my thoughts on software testing and development.</h3>
+  </div>
+</div>
 
+
+<div class="blog-index">
   
+  
+  
+    <article>
+      
+
   <div class="row-fluid">
-    <div class="span1">
-  	
-  	
-  	  
-  	    <h2>2013</h2>
-  	
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-09-16T13:38:00-04:00" pubdate data-updated="true">Sep 16<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/android/"><span class="badge">android</span></a>
+          
+          <a href="/blog/categories/appium/"><span class="badge">appium</span></a>
+          
+          <a href="/blog/categories/chromedriver/"><span class="badge">chromedriver</span></a>
+          
+          <a href="/blog/categories/iOS/"><span class="badge">iOS</span></a>
+          
+          <a href="/blog/categories/ruby/"><span class="badge">ruby</span></a>
+          
+          <a href="/blog/categories/selenium/"><span class="badge">selenium</span></a>
+          
+          <a href="/blog/categories/testing/"><span class="badge">testing</span></a>
+          
+          <a href="/blog/categories/watir-webdriver/"><span class="badge">watir-webdriver</span></a>
+          
+          </div>
+          
     </div>
-    <div class="span11">
-      <article>
-  	
-<div class="row-fluid">
-	<div class="span1">
-		<h1 class="date-time"><time datetime="2013-10-08T07:42:00-04:00" pubdate><span class='month'>Oct</span> <span class='day'>08</span><span class='year'><!--2013--></span></time></h1>
-	</div>
-	<div class="span10">
-		<h1><a href="/blog/2013/10/08/moving-towards-a-complete-testing-environment-in-a-box/">Moving Towards a Complete Testing Environment in a Box</a></h1>
-	</div>
-</div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/09/16/appium-for-ios-and-android-automated-testing/">Appium for iOS and Android Automated Testing</a></h1>
+      <h2>Introduction</h2>
 
-<div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span10">
-		
+<p>On the very slim chance that you&rsquo;ve found this blog, and you need to use Ruby and Cucumber to automate tests for web apps on Android and iOS? Here&rsquo;s one way to get started. This is what I&rsquo;ve been doing for the past few months.</p>
 
-		<footer class="archive">
-		  <span class="categories">posted in <a class='category' href='/blog/categories/appium/'>Appium</a>, <a class='category' href='/blog/categories/ci/'>CI</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>, <a class='category' href='/blog/categories/cucumber/'>cucumber</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/rvm/'>rvm</a></span>
-		</footer>
-		
-	</div>
-</div>
+<p>Maybe sometime soon, I&rsquo;ll have a repo with a nice Vagrantfile in it. If you&rsquo;re vagrant savvy, you&rsquo;ll just be able to clone it, type <code>vagrant up</code> and have a similar setup. We&rsquo;ll see what happens&hellip;</p>
+
+<h2>Suggestion</h2>
+
+<p>If you get stuck, use <a href="http://stackoverflow.com">stackoverflow</a>, <a href="http://superuser.com">superuser</a>, or any other Stack Exchange site like <a href="http://apple.stackexchange.com/">ask different</a>. They are all amazingly helpful. Any knowledge of Ruby, the OS X (UNIX-like) command-line (for file permissions user groups, etc) will help you understand these instructions and get going in the right direction or get back on path if you&rsquo;ve lost your way.</p>
+
+<h2>Tested with / Requirements</h2>
+
+<ul>
+<li>Macs with Lion OS and Mountain Lion OS</li>
+<li>Ruby 1.9.3p448 (installed from binary)</li>
+<li>Appium 0.8.2 (needed if you are using Lion), Appium 0.9.0 (Mountain Lion)</li>
+<li>Chromedriver 2.1 (for Lion) or Chromedriver 2.2 (for Mountain Lion)</li>
+<li>homebrew package manager</li>
+<li>node.js</li>
+<li>Install GenyMotion or the iOS simulator</li>
+</ul>
 
 
-  	</article>
+<p><strong>note: administrative access required for part of setup</strong></p>
+
+
+      
+       <a href="/blog/2013/09/16/appium-for-ios-and-android-automated-testing/">Read on &rarr;</a> 
     </div>
   </div>
 
+
+
+    </article>
+    
+  
+  <div class="pagination">
+    
+
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
 </div>
-
-</article>
-
-
 
 
         </div>
