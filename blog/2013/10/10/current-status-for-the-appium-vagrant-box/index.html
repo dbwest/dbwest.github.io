@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Making autocomplete better for my vim setup - Testblog</title>
+  <title>Current Status for the Appium Vagrant Box - Testblog</title>
   <meta name="author" content="David West">
 
    
   <meta name="description" content="How-tos... with a focus on automated testing">
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content="appiumvagrantandroidgenymotion">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup">
+  <link rel="canonical" href="http://dbwest.github.io/blog/2013/10/10/current-status-for-the-appium-vagrant-box">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -92,7 +92,7 @@
 
   <header>
   <div class="jumbotron">
-    Making Autocomplete Better for My Vim Setup
+    Current Status for the Appium Vagrant Box
 	<h5>
 
 
@@ -105,14 +105,56 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-08T15:19:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-10T17:20:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2013</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p><a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">This post</a> is awesome.</p>
+      <p>Currently I&rsquo;m stuck with a box that doesn&rsquo;t quite provision automatically yet, and isn&rsquo;t self contained as much as I&rsquo;d like it. Here are the reasons so far.</p>
 
-<p>I&rsquo;m hoping it will make autocompletion better in vim (I&rsquo;m using neocomplcache.) Will see soon.</p>
+<p>Problems related to automatic provisioning:</p>
+
+<ul>
+<li>I&rsquo;m not able to modify environment variables or add to the path on the Vagrant box yet. Here&rsquo;s how I&rsquo;ve been trying to do it:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>provision2.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>...
+</span><span class='line'><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/adt-bundle-linux-x86_64-20130917/sdk
+</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;PATH=&quot;$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unfortunately, that&rsquo;s not working. It&rsquo;s preventing me from completing the automated install on somethings I prefer not to get with a package manager or simply can&rsquo;t. So far, I&rsquo;m doing this with node.js and the Android SDK.
+&ndash; I haven&rsquo;t set the scripts up so that they can automatically install Jenkins plugins yet. The way I&rsquo;m trying to do this now seems to only work if the .war file is deployed and running:</p>
+
+<figure class='code'><figcaption><span>provision2.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>...
+</span><span class='line'>/run/jenkins/war/WEB-INF/java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reasons the box isn&rsquo;t self contained yet:</p>
+
+<ul>
+<li>Appium seems to have to be on the mac that&rsquo;s doing iOS tests, because of the way it works with Instruments (which is part of XCode.) I&rsquo;ve thought of ways I might try and get around this, including using netcat. Dan Cuellar, a top contributor to Appium replied on the Appium Google Group, Appium Discuss, that integrating the libimobiledevice library into Appium would make driving iOS tests from a Vagrant box possible.</li>
+</ul>
+
+
+<p>Things I still need to try:</p>
+
+<ul>
+<li>The box as it stands may, after a bit of manual installation and configuration, be able to drive and Android Genymotion emulator. Maybe soon in my spare time I&rsquo;ll get a chance to check that&hellip;</li>
+</ul>
+
 
     </div>
   </div>
@@ -131,9 +173,13 @@
 
 
 
-  <a href="/blog/categories/git/"><span class="badge">git</span></a>
+  <a href="/blog/categories/appium/"><span class="badge">appium</span></a>
 
-  <a href="/blog/categories/vim/"><span class="badge">vim</span></a>
+  <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+
+  <a href="/blog/categories/testing/"><span class="badge">testing</span></a>
+
+  <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
 
 
 
@@ -163,10 +209,8 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2013/10/08/boxen-githubs-tool-for-automated-developer-environment-setup/" title="Previous Post: Boxen: Github's tool for automated developer environment setup">&laquo; Boxen: Github's tool for automated developer environment setup</a>
+            <a class="basic-alignment left" href="/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup/" title="Previous Post: Making autocomplete better for my vim setup">&laquo; Making autocomplete better for my vim setup</a>
           
-          
-            <a class="basic-alignment right" href="/blog/2013/10/10/current-status-for-the-appium-vagrant-box/" title="Next Post: Current Status for the Appium Vagrant Box">Current Status for the Appium Vagrant Box &raquo;</a>
           
         </p>
       </div>
@@ -205,8 +249,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup/';
-        var disqus_url = 'http://dbwest.github.io/blog/2013/10/08/making-autocomplete-better-for-my-vim-setup/';
+        var disqus_identifier = 'http://dbwest.github.io/blog/2013/10/10/current-status-for-the-appium-vagrant-box/';
+        var disqus_url = 'http://dbwest.github.io/blog/2013/10/10/current-status-for-the-appium-vagrant-box/';
         var disqus_script = 'embed.js';
       
     (function () {

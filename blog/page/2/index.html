@@ -115,6 +115,81 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T12:31:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+          
+          <a href="/blog/categories/provisioning/"><span class="badge">provisioning</span></a>
+          
+          <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/02/devops-with-vagrant/">DevOps with Vagrant</a></h1>
+      <h2>Developer Environment Setups are Frequently Too Slow</h2>
+
+<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
+
+<ul>
+<li>A computer with an installed OS on the network</li>
+<li>Access to shares needed for development</li>
+<li>All the software needed for development installed</li>
+<li>All services configured on the system</li>
+<li>Sudo access or administrator access</li>
+</ul>
+
+
+<p><strong>Just getting this simple stuff set up is taking too long. That&rsquo;s a lot of money and time down the tubes.</strong></p>
+
+<h2>Enter Vagrant</h2>
+
+<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
+1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
+
+<ul>
+<li>Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX</li>
+<li>Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)</li>
+</ul>
+
+
+
+      
+       <a href="/blog/2013/10/02/devops-with-vagrant/">Read on &rarr;</a> 
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-09-30T13:50:00-04:00" pubdate data-updated="true">Sep 30<span>th</span>, 2013</time></h5>
           <div class="row-fluid">
           

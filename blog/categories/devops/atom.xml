@@ -4,7 +4,7 @@
   <title><![CDATA[Category: devops | Testblog]]></title>
   <link href="http://dbwest.github.io/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://dbwest.github.io/"/>
-  <updated>2013-10-08T15:23:32-04:00</updated>
+  <updated>2013-10-11T15:18:48-04:00</updated>
   <id>http://dbwest.github.io/</id>
   <author>
     <name><![CDATA[David West]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Current Status for the Appium Vagrant Box]]></title>
+    <link href="http://dbwest.github.io/blog/2013/10/10/current-status-for-the-appium-vagrant-box/"/>
+    <updated>2013-10-10T17:20:00-04:00</updated>
+    <id>http://dbwest.github.io/blog/2013/10/10/current-status-for-the-appium-vagrant-box</id>
+    <content type="html"><![CDATA[<p>Currently I&rsquo;m stuck with a box that doesn&rsquo;t quite provision automatically yet, and isn&rsquo;t self contained as much as I&rsquo;d like it. Here are the reasons so far.</p>
+
+<p>Problems related to automatic provisioning:</p>
+
+<ul>
+<li>I&rsquo;m not able to modify environment variables or add to the path on the Vagrant box yet. Here&rsquo;s how I&rsquo;ve been trying to do it:
+<code>bash provision2.sh
+...
+export ANDROID_HOME=export ANDROID_HOME=$HOME/adt-bundle-linux-x86_64-20130917/sdk
+echo 'PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"' &gt;&gt; ~/.bashrc
+...
+</code>
+Unfortunately, that&rsquo;s not working. It&rsquo;s preventing me from completing the automated install on somethings I prefer not to get with a package manager or simply can&rsquo;t. So far, I&rsquo;m doing this with node.js and the Android SDK.</li>
+<li>I haven&rsquo;t set the scripts up so that they can automatically install Jenkins plugins yet. The way I&rsquo;m trying to do this now seems to only work if the .war file is deployed and running:
+<code>bash provision2.sh
+...
+/run/jenkins/war/WEB-INF/java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
+...
+</code></li>
+</ul>
+
+
+<p>Reasons the box isn&rsquo;t self contained yet:</p>
+
+<ul>
+<li>Appium seems to have to be on the mac that&rsquo;s doing iOS tests, because of the way it works with Instruments (which is part of XCode.) I&rsquo;ve thought of ways I might try and get around this, including using netcat. Dan Cuellar, a top contributor to Appium replied on the Appium Google Group, Appium Discuss, that integrating the libimobiledevice library into Appium would make driving iOS tests from a Vagrant box possible.</li>
+</ul>
+
+
+<p>Things I still need to try:</p>
+
+<ul>
+<li>The box as it stands may, after a bit of manual installation and configuration, be able to drive and Android Genymotion emulator. Maybe soon in my spare time I&rsquo;ll get a chance to check that&hellip;</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Boxen: Github's tool for automated developer environment setup]]></title>
@@ -104,129 +147,6 @@ vagrant@precise64:~$ sudo npm install wd
 </code></p>
 
 <p>Finally, exit out of ssh with <code>CTRL-D</code> and type <code>vagrant package</code>. Vagrant will tell you where it puts the box. You can rename it, copy it, distribute it, and share it on a local network or on the internet.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DevOps with Vagrant]]></title>
-    <link href="http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant/"/>
-    <updated>2013-10-02T12:31:00-04:00</updated>
-    <id>http://dbwest.github.io/blog/2013/10/02/devops-with-vagrant</id>
-    <content type="html"><![CDATA[<h2>Developer Environment Setups are Frequently Too Slow</h2>
-
-<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
-
-<ul>
-<li>A computer with an installed OS on the network</li>
-<li>Access to shares needed for development</li>
-<li>All the software needed for development installed</li>
-<li>All services configured on the system</li>
-<li>Sudo access or administrator access</li>
-</ul>
-
-
-<p><strong>Just getting this simple stuff set up is taking too long. That&rsquo;s a lot of money and time down the tubes.</strong></p>
-
-<h2>Enter Vagrant</h2>
-
-<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
-1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
-
-<ul>
-<li>Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX</li>
-<li>Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)</li>
-</ul>
-
-
-<!-- more -->
-
-
-<ul>
-<li><p>Setting things up non-interactively for a truly automated experience. Who wants to have to respond to a whole bunch of prompts, and waste their time? If there&rsquo;s no good reason to do so, you at least have the option to get around this. And Vagrant makes it easier to do this. Many Vagrant base images are made so that you don&rsquo;t have to type in a password after a <code>sudo</code>. Before I read the book, I was wondering how you could possibly make useful provisioning scripts if you always have to type in a password when sudoing. This is obviously the kind of thing many people have thought of. If you set up your own box, you can do something like <code># visudo</code> to configure sudo for the vagrant user this way.</p></li>
-<li><p>There&rsquo;s a lot I didn&rsquo;t think about that you can also do with Vagrant:</p>
-
-<ol>
-<li><p>Simulating a multi-machine environment on one physical device. Sometimes developers want to have a model that they can use to simulate server outages, network problems, etc. with.</p></li>
-<li><p>Having a development environment that is purely software based and can easily be replicated, set up, torn down, etc. The more I thought about this the more awesome I realized it was. Vagrant does all this:</p>
-
-<ol>
-<li>It downloads the OS based on information gleaned from a configuration file (Vagrant uses something called a &lsquo;Vagrantfile&rsquo;)</li>
-<li>It configures and installs software based on shell/chef/puppet scripts you provide, based on what you&rsquo;ve specified in the Vagrantfile</li>
-<li>It allows sandboxed, standard, replicateable setups that can be checked into version control without taking up much space it all if wanted. From all source, Vagrantfiles and the scripts they reference download all the heavy stuff. You can decide to keep the boxes on your machine, and start, stop, suspend them, or you can redownload them anytime. The setup is always the same, and if you get to a state you want to keep without having to wait on lengthy provisioning you can always repackage your box, and have a base image with more software installed, that may be less bare bones, but has a custom set of software you don&rsquo;t want to have to download each time.</li>
-<li>All your work with source code can be done on a share so that you can use your favorite IDEs, Text Editors, File Managers.</li>
-<li>The box and any servers it uses can be connected via network by forwarded ports or other configurations so you can connect to web interfaces, REST APIs, etc on the guest machine (the box)</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-
-
-<h2>So simple</h2>
-
-<p>These scripts are from the &ldquo;Vagrant: Up and Running Book&rdquo;
-Basic Vagrant:</p>
-
-<ol>
-<li><p>Download and install for your operating system from <a href="http://vagrantup.com">vagrantup.com</a></p></li>
-<li><p>Run this command to get an Ubuntu Precise Pangolin box automatically installed, and generate a Vagrantfile</p></li>
-</ol>
-
-
-<p><code>bash Terminal
-$ mkdir vagrant_example
-$ cd vagrant_example
-$ vagrant init precise64 http://files.vagrantup.com/precise64.box
-</code></p>
-
-<ol>
-<li>Make a provisioning script. The basic process this involves is:
-
-<ul>
-<li>ssh into your Vagrant box with <code>vagrant ssh</code></li>
-<li>set up the software you want automatically set up manually one first time while keeping track of what you did to do it.</li>
-<li>take out all interactive elements (possibly using flags during command line installation to answer &lsquo;yes&rsquo; all the time, etc.)</li>
-<li>make a script using what you&rsquo;ve learned about what happens during the install process.
-Note: I am not even getting into what Puppet and Chef may be able to do to make this process easier or more reliable.</li>
-<li>Try this example provisioning script, which installs Apache on your Vagrant box. You&rsquo;re going to use the Vagrant file later to forward the port it hosts on so that your host machine can access served files:</li>
-</ul>
-</li>
-</ol>
-
-
-<p>``` bash provision.sh</p>
-
-<h1>!/usr/bin/env bash</h1>
-
-<p>echo &ldquo;Installing Apache and setting it up&hellip;&rdquo;
-apt-get update >/dev/null 2>&amp;1
-apt-get install -y apache2 >/dev/null 2>&amp;1
-rm -rf /var/www
-ln -fs /vagrant /var/www
-```</p>
-
-<ol>
-<li>You can use this example Vagrantfile now</li>
-</ol>
-
-
-<p>``` ruby Vagrantfile
-Vagrant.configure(&ldquo;2&rdquo;) do |config|
-config.vm.box = &ldquo;precise64&rdquo;</p>
-
-<pre><code>config.vm.network "forwarded_port", guest: 80, host: 8080
-config.vm.provision :shell, :path =&gt; "provision.sh"
-</code></pre>
-
-<p>end
-```</p>
-
-<ol>
-<li><p>Try bringing the vagrant box up with <code>vagrant up</code></p></li>
-<li><p>You should now be able to add any html files in the vagrant_example directory, and see Apache serve them on localhost:8080.</p></li>
-<li><p>Check on the status of your Vagrant box with <code>vagrant status</code> and use <code>vagrant suspend</code> <code>vagrant resume</code> <code>vagrant halt</code> <code>vagrant destroy</code> and <code>vagrant up</code> to manage the box, turn it on, suspend it, etc.</p></li>
-</ol>
-
 ]]></content>
   </entry>
   

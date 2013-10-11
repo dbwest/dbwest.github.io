@@ -115,6 +115,102 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-10T17:20:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/appium/"><span class="badge">appium</span></a>
+          
+          <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
+          
+          <a href="/blog/categories/testing/"><span class="badge">testing</span></a>
+          
+          <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/10/current-status-for-the-appium-vagrant-box/">Current Status for the Appium Vagrant Box</a></h1>
+      <p>Currently I&rsquo;m stuck with a box that doesn&rsquo;t quite provision automatically yet, and isn&rsquo;t self contained as much as I&rsquo;d like it. Here are the reasons so far.</p>
+
+<p>Problems related to automatic provisioning:</p>
+
+<ul>
+<li>I&rsquo;m not able to modify environment variables or add to the path on the Vagrant box yet. Here&rsquo;s how I&rsquo;ve been trying to do it:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>provision2.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>...
+</span><span class='line'><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span><span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/adt-bundle-linux-x86_64-20130917/sdk
+</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;PATH=&quot;$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unfortunately, that&rsquo;s not working. It&rsquo;s preventing me from completing the automated install on somethings I prefer not to get with a package manager or simply can&rsquo;t. So far, I&rsquo;m doing this with node.js and the Android SDK.
+&ndash; I haven&rsquo;t set the scripts up so that they can automatically install Jenkins plugins yet. The way I&rsquo;m trying to do this now seems to only work if the .war file is deployed and running:</p>
+
+<figure class='code'><figcaption><span>provision2.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>...
+</span><span class='line'>/run/jenkins/war/WEB-INF/java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin git
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reasons the box isn&rsquo;t self contained yet:</p>
+
+<ul>
+<li>Appium seems to have to be on the mac that&rsquo;s doing iOS tests, because of the way it works with Instruments (which is part of XCode.) I&rsquo;ve thought of ways I might try and get around this, including using netcat. Dan Cuellar, a top contributor to Appium replied on the Appium Google Group, Appium Discuss, that integrating the libimobiledevice library into Appium would make driving iOS tests from a Vagrant box possible.</li>
+</ul>
+
+
+<p>Things I still need to try:</p>
+
+<ul>
+<li>The box as it stands may, after a bit of manual installation and configuration, be able to drive and Android Genymotion emulator. Maybe soon in my spare time I&rsquo;ll get a chance to check that&hellip;</li>
+</ul>
+
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-08T15:19:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -660,81 +756,6 @@ To change that, edit the file like so, <code>adding published: false</code> to t
 
       
       
-    </div>
-  </div>
-
-
-
-    </article>
-    
-    <hr>
-    
-  
-  
-    <article>
-      
-
-  <div class="row-fluid">
-    <div class="span2">
-		<h1 class="date-time">
-
-
-
-
-
-
-
-
-  
-
-
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-02T12:31:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></h5>
-          <div class="row-fluid">
-          
-          </div>
-          
-          <div class="row-fluid">
-          
-          <a href="/blog/categories/devops/"><span class="badge">devops</span></a>
-          
-          <a href="/blog/categories/provisioning/"><span class="badge">provisioning</span></a>
-          
-          <a href="/blog/categories/vagrant/"><span class="badge">vagrant</span></a>
-          
-          </div>
-          
-    </div>
-    <div class="span10">
-      <h1 class="link"><a href="/blog/2013/10/02/devops-with-vagrant/">DevOps with Vagrant</a></h1>
-      <h2>Developer Environment Setups are Frequently Too Slow</h2>
-
-<p>I am hearing stories from other developers about how on many (most?) of their jobs, even if onboarding is relatively smooth, it is almost always the case that they have to wait too long for their development environments to be ready. In order to take care of these things, corporations sometimes need a few weeks to get employees up and running with these things:</p>
-
-<ul>
-<li>A computer with an installed OS on the network</li>
-<li>Access to shares needed for development</li>
-<li>All the software needed for development installed</li>
-<li>All services configured on the system</li>
-<li>Sudo access or administrator access</li>
-</ul>
-
-
-<p><strong>Just getting this simple stuff set up is taking too long. That&rsquo;s a lot of money and time down the tubes.</strong></p>
-
-<h2>Enter Vagrant</h2>
-
-<p>I heard a lead tech on a project I was on recently suggest Vagrant as a tool for DevOps. Not knowing much about it, I asked him to explain, and it sounded great. Just now, with the project being over, and a week off before my next gig on Monday, I picked up a book on Vagrant, &ldquo;Vagrant: Up and Running&rdquo;, by Mitchell Hashimoto. I read it in a few hours (it&rsquo;s a thin book.) It was awesome. Here&rsquo;s what I learned:
-1. Everything I wanted to automate as far as setup can be done. And there&rsquo;s a name for this thing, when done robustly: provisioning. This includes:</p>
-
-<ul>
-<li>Setting up any OS, even OSX from an image. Vagrant handles this on virtual machines, which can be run on all the big virtualization platforms, and also from cloud service like Amazon EC2. Many prebuilt images (Vagrant calls them boxes) are available. As you would guess they are for free OSes. So, you can just make your own using VirtualBox if you want something like Windows or OSX</li>
-<li>Having a configuration that uses shell scripts to set up things automatically. You can also use Chef or Puppet if you want to use a server to control a mass install or take care of the infrastructure for a large organization. Chef and Puppet, are also specially made for provisioning, and as such, can generate reports on installs, help you by providing functions to make your installs more predictible (an example is a function that makes it easy to make scripts idempotent.)</li>
-</ul>
-
-
-
-      
-       <a href="/blog/2013/10/02/devops-with-vagrant/">Read on &rarr;</a> 
     </div>
   </div>
 
