@@ -24,7 +24,7 @@ github_username:  dbwest
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-hacker
+theme: jekyll-swiss
 plugins:
   - jekyll-feed
 
