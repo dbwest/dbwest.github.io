@@ -14,4 +14,4 @@ If you are in such a situation, with the Enterprise CA certificate and all, you 
 
 Doing so is simple. Simply put, your administrator installed the Enterprise certificate for Windows 7 for you so Windows 7 can handle `https`. Now you are making a new machine, inside your machine, and you need to put the certificate in the right place so it can use it when you pull down images and do other things.
 
-There are a couple of good solutions I have found. One is from [a Stack Overflow post](https://www.google.com/url?sa=t&source=web&rct=j&url=https://stackoverflow.com/questions/31205438/docker-on-windows-boot2docker-certificate-signed-by-unknown-authority-error&ved=0ahUKEwiAnLfOzqzXAhWFQCYKHXGeBSEQjjgIJjAA&usg=AOvVaw0vcCs6fDsfwc47JaMDk7oL)
+There are a couple of good solutions I have found. One is from a Stack Overflow post [\[link\]](https://www.google.com/url?sa=t&source=web&rct=j&url=https://stackoverflow.com/questions/31205438/docker-on-windows-boot2docker-certificate-signed-by-unknown-authority-error&ved=0ahUKEwiAnLfOzqzXAhWFQCYKHXGeBSEQjjgIJjAA&usg=AOvVaw0vcCs6fDsfwc47JaMDk7oL)
