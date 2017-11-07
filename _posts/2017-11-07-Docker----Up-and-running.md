@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker -- Up and running... Windows and the Enterprise
+title: Docker - Up and running... Windows and the Enterprise
 ---
 Docker is generally easy to set up.
 
